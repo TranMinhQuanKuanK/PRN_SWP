@@ -18,19 +18,9 @@ namespace PRN_GroceryStoreManagement.APIControllers.Common
     [ApiController]
     public class Login_APIController : ControllerBase
     {
-        public class Customer_Data
-        {
-            public string txtUsername { get; set; }
-            public string txtPassword { get; set; }
-        }
         [HttpPost]
         public IActionResult checkLogin([FromBody] JsonElement DataObj)
         {
-            Debug.WriteLine(DataObj.ToString());
-           // DataObj.GetProperty(""); ;
-            //JObject JSONObjectFromBody = JObject.Parse("{}");
-           // string txtUsername = (string)DataObj.txtUsername;
-           // string txtPassword = (string)DataObj.txtPassword;
           string txtUsername = DataObj.GetString("txtUsername");
             string txtPassword = DataObj.GetString("txtPassword");
             Debug.WriteLine($"Username la: {txtUsername} va password la: {txtUsername}");
