@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OZmQh6J7i/XxcADvUxV0r/39uTyT+L2Y2ciY1VUD4Z5lWvz3Y7C918mleenRFFiclB9JLBO/cB9J9FxFaQoCWg==",
+  "dgSpecHash": "WSkpna4L4xsSg+fqlEvK2YcItnQQmveu3TOscB8wWo8lBRj3e+acQrMsAqX3m3bQb+5DYiIc+evxOoZo4kbxEg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_Beta\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj",
+  "projectFilePath": "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\quan6\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.7\\microsoft.aspnetcore.jsonpatch.5.0.7.nupkg.sha512",
     "C:\\Users\\quan6\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.7\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.7.nupkg.sha512",

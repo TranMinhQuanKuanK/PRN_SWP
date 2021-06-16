@@ -14,6 +14,7 @@
   <ItemGroup>
     <Folder Include="APIControllers\Cashier\" />
     <Folder Include="APIControllers\Storeowner\" />
+    <Folder Include="wwwroot\" />
     <Folder Include="Utils\" />
   </ItemGroup>
 
