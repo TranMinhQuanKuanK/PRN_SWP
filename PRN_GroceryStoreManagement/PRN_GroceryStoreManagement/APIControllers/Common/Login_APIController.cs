@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Security.Claims;//thêm 
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -19,24 +20,26 @@ namespace PRN_GroceryStoreManagement.APIControllers.Common
     public class Login_APIController : ControllerBase
     {
         [HttpPost]
-        public IActionResult checkLogin([FromBody] JsonElement DataObj)
+        public IActionResult checkLogin([FromBody] JsonElement JsonObj)
         {
-          string txtUsername = DataObj.GetString("txtUsername");
-            string txtPassword = DataObj.GetString("txtPassword");
+            string txtUsername = JsonObj.GetProperty("txtUsername").GetString();
+            string txtPassword = JsonObj.GetProperty("txtPassword").GetString();
             Debug.WriteLine($"Username la: {txtUsername} va password la: {txtUsername}");
             ClaimsIdentity identity = null;
             bool isAuthenticated = false; //xử lí sau
-            string name = "",role ="";
+            string name = "", role = "";
             LoginErrObj errobj = null;
-           AccountDTO aDTO = new AccountDAO().checkLogin(txtUsername, txtPassword);
-            if (aDTO==null) {
+            AccountDTO aDTO = new AccountDAO().checkLogin(txtUsername, txtPassword);
+            if (aDTO == null)
+            {
                 errobj = new LoginErrObj("Username or password is incorrect! Please try again");
-            } else
+            }
+            else
             {
                 isAuthenticated = true;
                 name = aDTO.username;
                 role = (aDTO.is_owner == true) ? "Admin" : "Cashier";
-            } 
+            }
             if (isAuthenticated)
             {
                 identity = new ClaimsIdentity
@@ -51,11 +54,10 @@ namespace PRN_GroceryStoreManagement.APIControllers.Common
                     CookieAuthenticationDefaults.AuthenticationScheme
                     , principal);
                 errobj = new LoginErrObj(false, (aDTO.is_owner == true) ? 1 : 2);
-                HttpContext.Session.SetInt32("LOGIN_STATUS", (aDTO.is_owner == true)?1:2);
+                HttpContext.Session.SetInt32("LOGIN_STATUS", (aDTO.is_owner == true) ? 1 : 2);
                 HttpContext.Session.SetString("USERNAME", aDTO.username);
                 HttpContext.Session.SetString("FULLNAME", aDTO.name);
             }
-            
 
             return new JsonResult(errobj);
         }

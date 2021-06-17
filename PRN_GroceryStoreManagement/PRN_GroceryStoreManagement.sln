@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31402.337
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRN_GroceryStoreManagement", "PRN_GroceryStoreManagement\PRN_GroceryStoreManagement.csproj", "{0D6EA314-E1CF-4C56-9A0B-4B7103F8B1E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PRN_GroceryStoreManagement", "PRN_GroceryStoreManagement\PRN_GroceryStoreManagement.csproj", "{0D6EA314-E1CF-4C56-9A0B-4B7103F8B1E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{ABAA5D6A-5FA3-4BEA-8F43-31A9A5089C87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0D6EA314-E1CF-4C56-9A0B-4B7103F8B1E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D6EA314-E1CF-4C56-9A0B-4B7103F8B1E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D6EA314-E1CF-4C56-9A0B-4B7103F8B1E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABAA5D6A-5FA3-4BEA-8F43-31A9A5089C87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABAA5D6A-5FA3-4BEA-8F43-31A9A5089C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABAA5D6A-5FA3-4BEA-8F43-31A9A5089C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABAA5D6A-5FA3-4BEA-8F43-31A9A5089C87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

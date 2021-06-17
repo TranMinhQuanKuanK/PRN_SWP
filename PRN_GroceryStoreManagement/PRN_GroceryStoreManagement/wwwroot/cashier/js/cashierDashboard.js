@@ -156,8 +156,8 @@ function getBill() {
 function printBill(billObject) {
   //in danh sách bill
   document.getElementById("bill-area").innerHTML = "";
-  for (i = 0; i < billObject.Bill_Detail.length; i++) {
-    var detail = billObject.Bill_Detail[i];
+  for (i = 0; i < billObject.bill_Detail.length; i++) {
+    var detail = billObject.bill_Detail[i];
     var tr = document.createElement("tr");
 
     var th_index = document.createElement("th");
@@ -258,8 +258,8 @@ function printPreviewBill(billObject) {
   ).innerHTML = document.getElementById("point-of-customer").innerHTML;
   //in bảng bill
   document.getElementById("bill-preview-area").innerHTML = "";
-  for (i = 0; i < billObject.Bill_Detail.length; i++) {
-    var detail = billObject.Bill_Detail[i];
+  for (i = 0; i < billObject.bill_Detail.length; i++) {
+    var detail = billObject.bill_Detail[i];
     var tr = document.createElement("tr");
 
     var th_index = document.createElement("th");

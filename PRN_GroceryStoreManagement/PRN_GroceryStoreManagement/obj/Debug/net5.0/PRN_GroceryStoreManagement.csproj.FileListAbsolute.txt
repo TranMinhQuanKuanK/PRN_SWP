@@ -48,6 +48,7 @@ C:\Users\quan6\OneDrive\SGK\PRN_Beta\PRN_GroceryStoreManagement\PRN_GroceryStore
 C:\Users\quan6\OneDrive\SGK\PRN_Beta\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\quan6\OneDrive\SGK\PRN_Beta\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Users\quan6\OneDrive\SGK\PRN_Beta\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\TestLoginSuccess\LoginSuccess.cshtml.g.cs
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\web.config
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\appsettings.json
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.exe
