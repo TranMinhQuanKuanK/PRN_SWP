@@ -150,5 +150,58 @@ namespace PRN_GroceryStoreManagement.Models.product
             }
             return listProduct;
         }
+
+        public ProductDTO GetProductByID(int? id)
+        {
+            ProductDTO pDTO = null;
+            try
+            {
+                //---------------đoạn code copy-------------------
+                string ConnectionString = "Data Source=localhost,1433;Initial Catalog=SWP_GroceryStoreDB;User ID=SWP;Password=SWPPassword";
+                SqlConnection connection = new SqlConnection(ConnectionString);
+                string SQLString = $"SELECT product_ID, name, quantity"
+                        + ",cost_price,selling_price,lower_threshold,"
+                        + " category_ID,unit_label,is_selling,location "
+                        + $" FROM product WHERE product_ID = {id}";
+                SqlCommand command = new SqlCommand(SQLString, connection);
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                //------------------------------------------------
+               
+                if (reader.HasRows == true)
+                {
+                    while (reader.Read())
+                    {
+                       
+                            int product_ID = reader.GetInt32("product_ID");
+                            Debug.WriteLine(reader.GetInt32("product_ID"));
+                            String name = reader.GetString("name");
+                            Debug.WriteLine(reader.GetString("name"));
+                            int quantity = reader.GetInt32("quantity");
+                            int cost_price = reader.GetInt32("cost_price");
+                            int selling_price = reader.GetInt32("selling_price");
+                            int lower_threshold = reader.GetInt32("lower_threshold");
+                            int category_ID = reader.GetInt32("category_ID");
+                            String unit_label = reader.GetString("unit_label");
+                            bool is_selling = reader.GetBoolean("is_selling");
+                            String location = reader.GetString("location");
+
+                            CategoryDAO cDAO = new CategoryDAO();
+                            CategoryDTO cDTO = cDAO.GetCategoryByID(category_ID);
+
+                            pDTO = new ProductDTO(product_ID, name, quantity,
+                                   cost_price, selling_price, lower_threshold, cDTO,
+                                   unit_label, is_selling, location);
+                    }
+                }
+                else return null;
+                connection.Close();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return pDTO;
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace PRN_GroceryStoreManagement.Models.sessionBill
         public BillErrObj()
         {
             this.error_list = new List<string>();
-            hasError = false;
+            this.hasError = false;
         }
         public void appendError(String error)
         {
