@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using PRN_GroceryStoreManagement.Models.category;
 using PRN_GroceryStoreManagement.Models.product;
 using PRN_GroceryStoreManagement.Models.sessionBill;
 using System;
