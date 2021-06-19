@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PRN_GroceryStoreManagement.Utils;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -18,8 +19,7 @@ namespace PRN_GroceryStoreManagement.Models.customer
             try
             {
                 //---------------đoạn code copy-------------------
-                string ConnectionString = 
-                    "Data Source=localhost,1433;Initial Catalog=SWP_GroceryStoreDB;User ID=SWP;Password=SWPPassword";
+                string ConnectionString = ConnectionStringUtil.GetConnectionString();
                 SqlConnection connection = new SqlConnection(ConnectionString);
                 string SQLString = "SELECT name, point"
                         + " FROM customer "

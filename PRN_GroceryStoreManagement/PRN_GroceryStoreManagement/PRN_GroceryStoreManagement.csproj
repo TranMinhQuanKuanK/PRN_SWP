@@ -15,11 +15,5 @@
     <Folder Include="APIControllers\Storeowner\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
-	
-	<ItemGroup>
-		<None Update="appsettings.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
-	
+
 </Project>

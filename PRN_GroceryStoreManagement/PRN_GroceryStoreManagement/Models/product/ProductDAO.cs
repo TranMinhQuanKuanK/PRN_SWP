@@ -16,11 +16,10 @@ namespace PRN_GroceryStoreManagement.Models.product
         private List<ProductDTO> listProduct = new List<ProductDTO>();
         public List<ProductDTO> GetProductList(int? category_id,String search_value, bool only_noos_items)
         {
-            Debug.WriteLine($"category la: {category_id} va search value la {search_value} va only la {only_noos_items}");
             try
             {
                 //---------------đoạn code copy-------------------
-                string ConnectionString = "Data Source=localhost,1433;Initial Catalog=SWP_GroceryStoreDB;User ID=SWP;Password=SWPPassword";
+                string ConnectionString = ConnectionStringUtil.GetConnectionString();
                 SqlConnection connection = new SqlConnection(ConnectionString);
                 string SQLString = $"SELECT product_ID, name, quantity"
                         + ",cost_price,selling_price,lower_threshold,"

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PRN_GroceryStoreManagement.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;//tự thêm
@@ -15,7 +16,7 @@ namespace PRN_GroceryStoreManagement.Models.account
         public AccountDTO checkLogin( string username, string password)
         {
             //---------------đoạn code copy-------------------
-            string ConnectionString = "Data Source=localhost,1433;Initial Catalog=SWP_GroceryStoreDB;User ID=SWP;Password=SWPPassword";
+            string ConnectionString = ConnectionStringUtil.GetConnectionString();
             SqlConnection connection = new SqlConnection(ConnectionString);
             SqlCommand command = new SqlCommand($"SELECT username, password_acc, name, is_owner " +
                 $"FROM account WHERE username = '{username}' AND password_acc = '{password}'", connection);

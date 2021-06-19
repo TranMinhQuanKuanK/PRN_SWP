@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using PRN_GroceryStoreManagement.Models.category;
 using PRN_GroceryStoreManagement.Models.product;
 using PRN_GroceryStoreManagement.Models.sessionBill;
 using System;
@@ -23,6 +22,7 @@ namespace PRN_GroceryStoreManagement.APIControllers.Common
         [HttpGet]
         public IActionResult AddProductToBill(int product_id)
         {
+            //add comment 
             BillObj bill = null;
             String BillJSONString = HttpContext.Session.GetString("BILL");
 

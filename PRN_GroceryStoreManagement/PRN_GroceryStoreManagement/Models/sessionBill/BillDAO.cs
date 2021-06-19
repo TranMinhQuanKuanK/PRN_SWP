@@ -20,7 +20,7 @@ namespace PRN_GroceryStoreManagement.Models.product
             try
             {
                 //---------------đoạn code copy-------------------
-                string ConnectionString = "Data Source=localhost,1433;Initial Catalog=SWP_GroceryStoreDB;User ID=SWP;Password=SWPPassword";
+                string ConnectionString = ConnectionStringUtil.GetConnectionString();
                 SqlConnection connection = new SqlConnection(ConnectionString);
                 string SQLString = $"SELECT product_ID, name, quantity"
                         + ",cost_price,selling_price,lower_threshold,"
