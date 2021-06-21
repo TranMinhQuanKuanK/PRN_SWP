@@ -29,7 +29,7 @@ namespace PRN_GroceryStoreManagement
         {
             services.AddControllers();
             services.AddMvc();
-            services.AddDistributedMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
+            // services.AddDistributedMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
             services.AddSession(options =>
             {
                 options.Cookie.Name = "PRN_Session";
@@ -66,13 +66,13 @@ namespace PRN_GroceryStoreManagement
             app.UseAuthentication();
 
             app.UseAuthorization();
-
-
+            
             app.UseEndpoints(endpoints =>
             {
+                
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller}/{action?}/{id?}");
+                    pattern: "{controller=Startup}/{action?}/{id?}");
             });
         }
     }

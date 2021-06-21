@@ -88,9 +88,6 @@ C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreM
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.TagHelpers.input.cache
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.TagHelpers.output.cache
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.RazorCoreGenerate.cache
-C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\CashierDashboard\CashierDashboard.cshtml.g.cs
-C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\LoginPage\LoginPage.cshtml.g.cs
-C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\StoreOwnerDashboard\StoreownerDashboard.cshtml.g.cs
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.RazorTargetAssemblyInfo.cache
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.RazorTargetAssemblyInfo.cs
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.Views.pdb
@@ -99,3 +96,7 @@ C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreM
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\ref\PRN_GroceryStoreManagement.dll
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.pdb
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.genruntimeconfig.cache
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.csproj.AssemblyReference.cache
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\LoginPage.cshtml.g.cs
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\StoreownerDashboard.cshtml.g.cs
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\CashierDashboard.cshtml.g.cs
