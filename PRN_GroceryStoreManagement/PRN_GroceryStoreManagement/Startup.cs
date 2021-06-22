@@ -61,7 +61,7 @@ namespace PRN_GroceryStoreManagement
 
             app.UseSession();
 
-            app.UseCookiePolicy();
+            app.UseCookiePolicy(); //middleware
 
             app.UseAuthentication();
 

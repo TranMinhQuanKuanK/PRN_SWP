@@ -13,6 +13,10 @@
 
   <ItemGroup>
     <Folder Include="APIControllers\Storeowner\" />
+    <Folder Include="Models\feedback\" />
+    <Folder Include="Models\statistic\" />
+    <Folder Include="Models\previousBill\" />
+    <Folder Include="Models\pendingItem\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

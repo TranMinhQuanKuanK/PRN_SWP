@@ -18,12 +18,12 @@ namespace PRN_GroceryStoreManagement.Models.category
                 //---------------đoạn code copy-------------------
                 string ConnectionString = ConnectionStringUtil.GetConnectionString();
                 SqlConnection connection = new SqlConnection(ConnectionString);
-                string SQLString = $"SELECT category_ID, name, info "
+                string SQLString = "SELECT category_ID, name, info "
                             + "FROM category";
                 SqlCommand command = new SqlCommand(SQLString, connection);
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-                //------------------------------------------------
+                //------------------------------------------------ 
                 CategoryDTO cDTO = null;
                 if (reader.HasRows == true)
                 {
