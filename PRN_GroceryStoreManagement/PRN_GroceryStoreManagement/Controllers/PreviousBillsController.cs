@@ -10,7 +10,7 @@ namespace PRN_GroceryStoreManagement.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View("PreviousBills");
         }
     }
 }
