@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "WSkpna4L4xsSg+fqlEvK2YcItnQQmveu3TOscB8wWo8lBRj3e+acQrMsAqX3m3bQb+5DYiIc+evxOoZo4kbxEg==",
+  "dgSpecHash": "sFAKe+ai38tsuzEykjL18KgfQN/v+ztPYzfNb/zEe+D9rNmYoYCQtwxl42SA0Q7kIv0u27QqDwH0jHYK7KQPUQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\quan6\\.nuget\\packages\\google.apis\\1.52.0\\google.apis.1.52.0.nupkg.sha512",
+    "C:\\Users\\quan6\\.nuget\\packages\\google.apis.admin.directory.directory_v1\\1.52.0.2357\\google.apis.admin.directory.directory_v1.1.52.0.2357.nupkg.sha512",
+    "C:\\Users\\quan6\\.nuget\\packages\\google.apis.auth\\1.52.0\\google.apis.auth.1.52.0.nupkg.sha512",
+    "C:\\Users\\quan6\\.nuget\\packages\\google.apis.core\\1.52.0\\google.apis.core.1.52.0.nupkg.sha512",
     "C:\\Users\\quan6\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.7\\microsoft.aspnetcore.jsonpatch.5.0.7.nupkg.sha512",
     "C:\\Users\\quan6\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.7\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.7.nupkg.sha512",
     "C:\\Users\\quan6\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
