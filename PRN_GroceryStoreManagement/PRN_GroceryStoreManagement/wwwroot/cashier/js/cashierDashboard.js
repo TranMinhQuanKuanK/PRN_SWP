@@ -249,13 +249,11 @@ function printBill(billObject) {
 
 function printPreviewBill(billObject) {
   //in tên và điểm
-  document.getElementById(
-    "bill-preview-customer-name"
-  ).innerHTML = document.getElementById("customer-name").innerHTML;
+  document.getElementById("bill-preview-customer-name").innerHTML =
+    document.getElementById("customer-name").innerHTML;
 
-  document.getElementById(
-    "bill-preview-customer-point"
-  ).innerHTML = document.getElementById("point-of-customer").innerHTML;
+  document.getElementById("bill-preview-customer-point").innerHTML =
+    document.getElementById("point-of-customer").innerHTML;
   //in bảng bill
   document.getElementById("bill-preview-area").innerHTML = "";
   for (i = 0; i < billObject.bill_Detail.length; i++) {
@@ -292,17 +290,14 @@ function printPreviewBill(billObject) {
     document.getElementById("bill-preview-area").appendChild(tr);
   }
   //in phần thành tiền/giảm giá/tổng tiền/khách đưa:
-  document.getElementById(
-    "bill-preview-total"
-  ).innerHTML = document.getElementById("total").innerHTML;
+  document.getElementById("bill-preview-total").innerHTML =
+    document.getElementById("total").innerHTML;
 
-  document.getElementById(
-    "bill-preview-discount"
-  ).innerHTML = document.getElementById("discount").innerHTML;
+  document.getElementById("bill-preview-discount").innerHTML =
+    document.getElementById("discount").innerHTML;
 
-  document.getElementById(
-    "bill-preview-total-after-discount"
-  ).innerHTML = document.getElementById("total-after-discount").innerHTML;
+  document.getElementById("bill-preview-total-after-discount").innerHTML =
+    document.getElementById("total-after-discount").innerHTML;
 
   document.getElementById("bill-preview-cash").innerHTML =
     document.getElementById("cash").value == ""
@@ -503,8 +498,9 @@ function calculateDiscount() {
 
 function EditQuantityBill(product_id) {
   var xhttp = new XMLHttpRequest();
-  quantity = document.getElementById("quantity-for-product-" + product_id)
-    .value;
+  quantity = document.getElementById(
+    "quantity-for-product-" + product_id
+  ).value;
   xhttp.open(
     "GET",
     "EditQuantityBill?product_id=" + product_id + "&quantity=" + quantity,
@@ -638,7 +634,7 @@ function RegisterCustomer() {
 
 function Checkout() {
   if (currentBill.total_cost == 0) {
-    alert("Chưa mua gì mà bấm thanh toán????? Bị khùng hả?");
+    alert("Chưa mua gì mà bấm thanh toán?????");
   } else {
     var cash = document.getElementById("cash").value;
     var xhttp = new XMLHttpRequest();

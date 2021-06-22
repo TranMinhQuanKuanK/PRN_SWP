@@ -13,17 +13,19 @@ namespace PRN_GroceryStoreManagement.Models.category
         private List<CategoryDTO> listCategory = new List<CategoryDTO>();
         public List<CategoryDTO> GetAllCategory()
         {
+
+            //---------------đoạn code copy-------------------
+            string ConnectionString = ConnectionStringUtil.GetConnectionString();
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            string SQLString = "SELECT category_ID, name, info "
+                        + "FROM category";
+            SqlCommand command = new SqlCommand(SQLString, connection);
+            //------------------------------------------------ 
             try
             {
-                //---------------đoạn code copy-------------------
-                string ConnectionString = ConnectionStringUtil.GetConnectionString();
-                SqlConnection connection = new SqlConnection(ConnectionString);
-                string SQLString = "SELECT category_ID, name, info "
-                            + "FROM category";
-                SqlCommand command = new SqlCommand(SQLString, connection);
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-                //------------------------------------------------ 
+
                 CategoryDTO cDTO = null;
                 if (reader.HasRows == true)
                 {
@@ -38,26 +40,29 @@ namespace PRN_GroceryStoreManagement.Models.category
                 }
                 else return null;
                 connection.Close();
-            } catch (SqlException e)
+            }
+            catch (SqlException e)
             {
                 Console.WriteLine(e.Message);
-            } 
+            }
             return listCategory;
         }
-        public CategoryDTO GetCategoryByID (int ID)
+        public CategoryDTO GetCategoryByID(int ID)
         {
-           
+
+
+            //---------------đoạn code copy-------------------
+            string ConnectionString = "Data Source=localhost,1433;Initial Catalog=SWP_GroceryStoreDB;User ID=SWP;Password=SWPPassword";
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            string SQLString = $"SELECT category_ID, name, info "
+                        + $"FROM category WHERE category_ID={ID}";
+            SqlCommand command = new SqlCommand(SQLString, connection);
+            //------------------------------------------------
             try
             {
-                //---------------đoạn code copy-------------------
-                string ConnectionString = "Data Source=localhost,1433;Initial Catalog=SWP_GroceryStoreDB;User ID=SWP;Password=SWPPassword";
-                SqlConnection connection = new SqlConnection(ConnectionString);
-                string SQLString = $"SELECT category_ID, name, info "
-                            + $"FROM category WHERE category_ID={ID}";
-                SqlCommand command = new SqlCommand(SQLString, connection);
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-                //------------------------------------------------
+
                 CategoryDTO cDTO = null;
                 if (reader.HasRows == true)
                 {
