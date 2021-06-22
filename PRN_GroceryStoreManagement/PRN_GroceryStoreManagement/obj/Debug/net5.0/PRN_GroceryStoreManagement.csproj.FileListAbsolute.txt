@@ -108,3 +108,8 @@ C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreM
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\ProductList.cshtml.g.cs
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\Staff.cshtml.g.cs
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\Statistics.cshtml.g.cs
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Google.Apis.dll
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Google.Apis.Admin.Directory.directory_v1.dll
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Google.Apis.Auth.PlatformServices.dll
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Google.Apis.Auth.dll
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Google.Apis.Core.dll
