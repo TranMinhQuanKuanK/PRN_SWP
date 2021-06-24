@@ -122,3 +122,9 @@ C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\TestProject1\obj\
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\TestProject1\obj\Debug\net5.0\ref\TestProject1.dll
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\TestProject1\obj\Debug\net5.0\TestProject1.pdb
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\TestProject1\obj\Debug\net5.0\TestProject1.genruntimeconfig.cache
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\TestProject1\bin\Debug\net5.0\web.config
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\TestProject1\bin\Debug\net5.0\Google.Apis.dll
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\TestProject1\bin\Debug\net5.0\Google.Apis.Admin.Directory.directory_v1.dll
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\TestProject1\bin\Debug\net5.0\Google.Apis.Auth.PlatformServices.dll
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\TestProject1\bin\Debug\net5.0\Google.Apis.Auth.dll
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\TestProject1\bin\Debug\net5.0\Google.Apis.Core.dll

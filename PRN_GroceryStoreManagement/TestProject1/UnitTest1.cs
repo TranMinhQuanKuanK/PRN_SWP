@@ -1,4 +1,5 @@
-﻿using PRN_GroceryStoreManagement.Utils;
+﻿using PRN_GroceryStoreManagement.Models.product;
+using PRN_GroceryStoreManagement.Utils;
 using System;
 using Xunit;
 
@@ -14,8 +15,11 @@ namespace TestProject1
                 StringNormalizer.normalize("Unit test   sướng    ghê  nhề"));
         }
         [Fact]
-        public void Test2()
+        public void TestBillDAO()
         {
+            BillDAO bDAO = new BillDAO();
+            int result = bDAO.CreateBill("0978610119", DateTime.Now, "cashier", 1000, 0, 20000, 0);
+            Assert.Equal(1, result);
             //ProductDAO
         }
     }

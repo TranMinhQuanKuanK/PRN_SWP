@@ -21,7 +21,7 @@ namespace PRN_GroceryStoreManagement.APIControllers.Common
         public IActionResult GetProductList(int? category_id, String search_value, bool only_noos_items = false)
         { 
 
-            List<ProductDTO> productList = new BillDAO().GetProductList(category_id, search_value, only_noos_items);
+            List<ProductDTO> productList = new ProductDAO().GetProductList(category_id, search_value, only_noos_items);
            
             return new JsonResult(productList);
         }
