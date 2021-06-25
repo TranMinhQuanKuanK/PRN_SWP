@@ -20,10 +20,11 @@ namespace PRN_GroceryStoreManagement.APIControllers.Common
     public class Login_APIController : ControllerBase
     {
         [HttpPost]
-        public IActionResult checkLogin([FromBody] JsonElement JsonObj)
+        //{productid=4,total=3,name=5,account=dfdfdf}
+        public IActionResult checkLogin([FromBody] JsonElement JsonObjTranMinhQuan)
         {
-            string txtUsername = JsonObj.GetProperty("txtUsername").GetString();
-            string txtPassword = JsonObj.GetProperty("txtPassword").GetString();
+            string txtUsername = JsonObjTranMinhQuan.GetProperty("txtUsername").GetString();
+            string txtPassword = JsonObjTranMinhQuan.GetProperty("txtPassword").GetString();
             Debug.WriteLine($"Username la: {txtUsername} va password la: {txtUsername}");
             ClaimsIdentity identity = null;
             bool isAuthenticated = false; //xử lí sau
@@ -57,7 +58,7 @@ namespace PRN_GroceryStoreManagement.APIControllers.Common
                 HttpContext.Session.SetInt32("LOGIN_STATUS", (aDTO.is_owner == true) ? 1 : 2);
                 HttpContext.Session.SetString("USERNAME", aDTO.username);
                 HttpContext.Session.SetString("FULLNAME", aDTO.name);
-            }
+            } //role-based authentication--------claim-based authentication-----
 
             return new JsonResult(errobj);
         }

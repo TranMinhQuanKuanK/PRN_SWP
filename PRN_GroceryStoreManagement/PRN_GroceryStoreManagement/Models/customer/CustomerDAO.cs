@@ -62,6 +62,7 @@ namespace PRN_GroceryStoreManagement.Models.customer
             //------------------------------------------------
             try
             {
+                //nullable primitive type
                 connection.Open();
 
                 command.Parameters.Add("@phone_no", SqlDbType.NVarChar).Value = phone_no;
