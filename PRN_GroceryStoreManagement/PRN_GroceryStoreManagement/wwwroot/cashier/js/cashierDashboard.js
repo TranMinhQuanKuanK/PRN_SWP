@@ -599,22 +599,27 @@ function RegisterCustomer() {
   } else {
     var xhttp = new XMLHttpRequest();
 
-    content =
-      "phone_no=" +
-      encodeURIComponent(customerPhoneNo) +
-      "&name=" +
-      encodeURIComponent(customerName);
+    // content =
+    //   "phone_no=" +
+    //   encodeURIComponent(customerPhoneNo) +
+    //   "&name=" +
+    //   encodeURIComponent(customerName);
 
-    xhttp.open("POST", "CreateNewCustomer", true);
-    xhttp.setRequestHeader(
-      "Content-Type",
-      "application/x-www-form-urlencoded;charset=UTF-8"
-    );
+    var JSONObject = {
+      phone_no: customerPhoneNo,
+      name: customerName,
+    };
+    console.log(JSON.stringify(JSONObject));
+    xhttp.open("POST", "CreateNewCustomer", false);
+    //xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.setRequestHeader("Accept", "application/json");
     xhttp.onload = function () {
       customerErrObj = JSON.parse(this.responseText);
       processError();
     };
-    xhttp.send(content);
+    xhttp.send(JSON.stringify(JSONObject));
+
     function processError() {
       if (customerErrObj.has_Error == true) {
         clearAllError();

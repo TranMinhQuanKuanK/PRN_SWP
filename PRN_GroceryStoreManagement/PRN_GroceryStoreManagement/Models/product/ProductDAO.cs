@@ -151,7 +151,6 @@ namespace PRN_GroceryStoreManagement.Models.product
             }
             return listProduct;
         }
-
         public ProductDTO GetProductByID(int? id)
         {
             ProductDTO pDTO = null;
@@ -206,5 +205,70 @@ namespace PRN_GroceryStoreManagement.Models.product
             }
             return pDTO;
         }
+        public bool AddQuantityToProduct(int ProductID, int quantity)
+        {
+            //---------------đoạn code copy-------------------
+            string ConnectionString = "Data Source=localhost,1433;Initial Catalog=SWP_GroceryStoreDB;User ID=SWP;Password=SWPPassword";
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            string SQLString = "SELECT quantity, lower_threshold "
+                        + " FROM product WHERE product_ID = @product_ID";
+            SqlCommand command = new SqlCommand(SQLString, connection);
+            //------------------------------------------------
+            int? currentQuantity = 0;
+            int? lower_threshold = 0;
+            try
+            {
+                connection.Open();
+
+                command.Parameters.Add("@product_ID", SqlDbType.Int).Value = ProductID;
+               
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                if (reader.HasRows == true)
+                {
+                    if (reader.Read())
+                    {
+                        currentQuantity = reader.GetInt32("quantity");
+                        lower_threshold = reader.GetInt32("lower_threshold");
+                    }
+                }
+
+                connection.Close();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            //-------------------------------------------------
+             SQLString = "UPDATE product "
+                        + "SET quantity = @quantity"
+                        + " WHERE product_ID = @product_ID ";
+            command = new SqlCommand(SQLString, connection);
+            //------------------------------------------------
+          
+            try
+            {
+                connection.Open();
+
+                command.Parameters.Add("@quantity", SqlDbType.Int).Value = currentQuantity + quantity;
+                command.Parameters.Add("@product_ID", SqlDbType.Int).Value = ProductID;
+                
+                int rowAffected = command.ExecuteNonQuery();
+                connection.Close();
+                if (currentQuantity + quantity <= lower_threshold)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return false;
+        }
+
     }
 }

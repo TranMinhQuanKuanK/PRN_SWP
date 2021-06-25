@@ -18,7 +18,7 @@ namespace TestProject1
         public void TestBillDAO()
         {
             BillDAO bDAO = new BillDAO();
-            int result = bDAO.CreateBill("0978610119", DateTime.Now, "cashier", 1000, 0, 20000, 0);
+            int result = bDAO.CreateBill(null, DateTime.Now, "cashier", 1000, 0, 20000, 0);
             Assert.Equal(1, result);
             //ProductDAO
         }

@@ -53,9 +53,86 @@ namespace PRN_GroceryStoreManagement.Models.customer
 
         public bool CreateNewCustomer(String phone_no, String name)
         {
+            string ConnectionString = ConnectionStringUtil.GetConnectionString();
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            string SQLString = "INSERT INTO customer "
+                        + " (phone_no, name, point)"
+                        + " VALUES (@phone_no,@name,@point)";
+            SqlCommand command = new SqlCommand(SQLString, connection);
+            //------------------------------------------------
+            try
+            {
+                connection.Open();
 
+                command.Parameters.Add("@phone_no", SqlDbType.NVarChar).Value = phone_no;
+                command.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
+                command.Parameters.Add("@point", SqlDbType.Int).Value = 0;
+
+               int? rowAffected = (int?) command.ExecuteScalar();
+
+                connection.Close();
+                return rowAffected > 0;
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
             return false;
             //?
+        }
+        public bool AddPointCustomer(String phone_no, int point)
+        {
+
+            //---------------đoạn code copy-------------------
+            string ConnectionString = ConnectionStringUtil.GetConnectionString();
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            string SQLString = "SELECT point"
+                        + " FROM customer "
+                        + "WHERE phone_no = @phone_no";
+            SqlCommand command = new SqlCommand(SQLString, connection);
+            //------------------------------------------------
+            int current_point = 0;
+            try
+            {
+                connection.Open();
+                command.Parameters.Add("@phone_no", SqlDbType.NVarChar).Value = phone_no;
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+
+                
+                if (reader.HasRows == true)
+                {
+                    if (reader.Read())
+                    {
+                        current_point = reader.GetInt32("point");
+                    }
+                }
+                connection.Close();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            //---------------------------------------------
+             SQLString = "UPDATE customer "
+                        + "SET point = @point"
+                        + " WHERE phone_no = @phone_no ";
+            command = new SqlCommand(SQLString, connection);
+            //------------------------------------------------
+            try
+            {
+                connection.Open();
+                command.Parameters.Add("@point", SqlDbType.Int).Value = current_point + point;
+                command.Parameters.Add("@phone_no", SqlDbType.NVarChar).Value = phone_no;
+                int rowAffected = command.ExecuteNonQuery();
+                connection.Close();
+                return rowAffected > 0;
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            return false;
         }
     }
 }
