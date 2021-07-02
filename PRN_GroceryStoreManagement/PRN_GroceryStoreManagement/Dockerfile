@@ -6,7 +6,7 @@ EXPOSE 6001
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["PRN_GroceryStoreManagement/PRN_GroceryStoreManagement.csproj", "PRN_GroceryStoreManagement/"]
+COPY ["PRN_GroceryStoreManagement.csproj", "PRN_GroceryStoreManagement/"]
 RUN dotnet restore "PRN_GroceryStoreManagement/PRN_GroceryStoreManagement.csproj"
 COPY . .
 WORKDIR "/src/PRN_GroceryStoreManagement"
