@@ -37,7 +37,6 @@ namespace PRN_GroceryStoreManagement.Models.account
                         string _name = reader.GetString("name");
                         bool _is_owner = reader.GetBoolean("is_owner");
 
-
                         aDTO = new AccountDTO(_username, _password_acc, _name, _is_owner);
                     }
                 }

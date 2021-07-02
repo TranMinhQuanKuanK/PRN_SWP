@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "E9CgWFM73aH30vOT1Cdd/gvkIj6oEsRlYPxd91f6IN6qQ/IBubqBrqzu2lIcAirLxz9bH1ezmEQ6H9KxJ0dduA==",
+  "dgSpecHash": "mcfHxv2MIbBVM/2IthkXGVzCFD+Krl/6CMdX0o/xjGRlEkbmzpoeIubqPUgA9DKCii4JW4Prtp7IBZwdstRqwg==",
   "success": true,
   "projectFilePath": "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\TestProject1\\TestProject1.csproj",
   "expectedPackageFiles": [
@@ -20,6 +20,7 @@
     "C:\\Users\\quan6\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\quan6\\.nuget\\packages\\microsoft.testplatform.objectmodel\\16.9.4\\microsoft.testplatform.objectmodel.16.9.4.nupkg.sha512",
     "C:\\Users\\quan6\\.nuget\\packages\\microsoft.testplatform.testhost\\16.9.4\\microsoft.testplatform.testhost.16.9.4.nupkg.sha512",
+    "C:\\Users\\quan6\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.14\\microsoft.visualstudio.azure.containers.tools.targets.1.10.14.nupkg.sha512",
     "C:\\Users\\quan6\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\quan6\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\quan6\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
