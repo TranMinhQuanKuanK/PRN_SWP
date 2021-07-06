@@ -11,7 +11,7 @@ namespace PRN_GroceryStoreManagement.Models.pendingItem
     public class PendingItemDAO
     {
         private List<PendingItemDTO> listPendingNoti = new List<PendingItemDTO>();
-
+        private List<SuggestionListDTO> suggestionList = new List<SuggestionListDTO>();
         public List<PendingItemDTO> GetPendingList()
         {
             //---------------đoạn code copy-------------------
@@ -52,6 +52,7 @@ namespace PRN_GroceryStoreManagement.Models.pendingItem
             }
             return listPendingNoti;
         }
+
         public bool CreatePendingList(int productID, DateTime pending_date, String note)
         {
             //---------------đoạn code copy-------------------
@@ -83,5 +84,71 @@ namespace PRN_GroceryStoreManagement.Models.pendingItem
             return false;
         }
 
+        public List<SuggestionListDTO> GetSuggestionList()
+        {
+            //---------------đoạn code copy-------------------
+            string ConnectionString = ConnectionStringUtil.GetConnectionString();
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            string SQLString = "SELECT Pro.product_ID, Pro.name, Pro.quantity, Pe.is_resolved "
+                        + "FROM pending_product_noti Pe INNER JOIN product Pro ON Pe.product_ID = Pro.product_ID "
+                        + "WHERE Pe.is_resolved = @is_resolved";
+            SqlCommand command = new SqlCommand(SQLString, connection);
+            //------------------------------------------------
+            try
+            {
+                connection.Open();
+
+                command.Parameters.Add("@is_resolved", SqlDbType.Bit).Value = false;
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                if (reader.HasRows == true)
+                {
+                    while (reader.Read())
+                    {
+                        int product_ID = reader.GetInt32("product_ID");
+                        String product_name = reader.GetString("name");
+                        int quantity = reader.GetInt32("quantity");
+                        SuggestionListDTO DTO = new SuggestionListDTO(product_ID, product_name, quantity);
+                        suggestionList.Add(DTO);
+                    }
+                }
+                else return null;
+                connection.Close();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return suggestionList;
+        }
+
+        public bool IsExistedInPendingList(int productID)
+        {
+            //---------------đoạn code copy-------------------
+            string ConnectionString = ConnectionStringUtil.GetConnectionString();
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            string SQLString = "SELECT product_ID "
+                        + "FROM pending_product_noti "
+                        + "WHERE product_ID = @proID AND is_resolved = @is_resolved";
+            SqlCommand command = new SqlCommand(SQLString, connection);
+            //------------------------------------------------
+            try
+            {
+                connection.Open();
+
+                command.Parameters.Add("@proID", SqlDbType.Int).Value = productID;
+                command.Parameters.Add("@is_resolved", SqlDbType.Bit).Value = false;
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                if (reader.HasRows == true)
+                {
+                    return true;
+                }
+                connection.Close();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return false;
+        }
     }
 }

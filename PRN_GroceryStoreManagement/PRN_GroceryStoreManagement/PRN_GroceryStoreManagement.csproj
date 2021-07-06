@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <Folder Include="APIControllers\Storeowner\feedback\" />
-    <Folder Include="APIControllers\Storeowner\inventory\" />
     <Folder Include="APIControllers\Storeowner\statistics\" />
     <Folder Include="APIControllers\Storeowner\staff\" />
     <Folder Include="APIControllers\Storeowner\product\" />

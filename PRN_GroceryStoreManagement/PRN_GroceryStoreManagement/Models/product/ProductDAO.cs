@@ -270,5 +270,36 @@ namespace PRN_GroceryStoreManagement.Models.product
             return false;
         }
 
+        public bool changeQuantity(int productID, int quantity)
+        {
+            //---------------đoạn code copy-------------------
+            string ConnectionString = "Data Source=localhost,1433;Initial Catalog=SWP_GroceryStoreDB;User ID=SWP;Password=SWPPassword";
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            string SQLString = "UPDATE product "
+                        + "SET quantity = @new_quantity "
+                        + "WHERE product_ID = @proID";
+            SqlCommand command = new SqlCommand(SQLString, connection);
+            //------------------------------------------------
+            try
+            {
+                connection.Open();
+
+                command.Parameters.Add("@proID", SqlDbType.Int).Value = productID;
+                command.Parameters.Add("@new_quantity", SqlDbType.Int).Value = quantity;
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                if (reader.HasRows == true)
+                {
+                    return true;
+                }
+
+                connection.Close();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return false;
+        }
+       
     }
 }
