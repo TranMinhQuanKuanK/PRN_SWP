@@ -22,12 +22,13 @@ namespace PRN_GroceryStoreManagement.Models.customer
             SqlConnection connection = new SqlConnection(ConnectionString);
             string SQLString = "SELECT name, point"
                     + " FROM customer "
-                    + $"WHERE phone_no = {phone_no}";
+                    + $"WHERE phone_no = @phone_no";
             SqlCommand command = new SqlCommand(SQLString, connection);
             //------------------------------------------------
             try
             {
                 connection.Open();
+                command.Parameters.AddWithValue("@phone_no", phone_no);
                 SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
 
 
