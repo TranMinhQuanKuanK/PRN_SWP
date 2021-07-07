@@ -45,6 +45,10 @@ namespace PRN_GroceryStoreManagement.Models.category
             {
                 Console.WriteLine(e.Message);
             }
+            finally
+            {
+                if (connection != null) connection.Dispose();
+            }
             return listCategory;
         }
         public CategoryDTO GetCategoryByID(int ID)
@@ -52,7 +56,7 @@ namespace PRN_GroceryStoreManagement.Models.category
 
 
             //---------------đoạn code copy-------------------
-            string ConnectionString = "Data Source=localhost,1433;Initial Catalog=SWP_GroceryStoreDB;User ID=SWP;Password=SWPPassword";
+            string ConnectionString = ConnectionStringUtil.GetConnectionString();
             SqlConnection connection = new SqlConnection(ConnectionString);
             string SQLString = $"SELECT category_ID, name, info "
                         + $"FROM category WHERE category_ID={ID}";
@@ -75,12 +79,15 @@ namespace PRN_GroceryStoreManagement.Models.category
                         return cDTO;
                     }
                 }
-                else return null;
                 connection.Close();
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.Message);
+            }
+            finally 
+            { 
+                if (connection != null) connection.Dispose(); 
             }
             return null;
         }
