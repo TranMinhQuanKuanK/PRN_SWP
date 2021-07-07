@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PRNProject\\PRN_SWP\\PRN_GroceryStoreManagement\\TestProject1\\TestProject1.csproj": {}
+    "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\TestProject1\\TestProject1.csproj": {}
   },
   "projects": {
-    "D:\\PRNProject\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj": {
+    "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PRNProject\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj",
+        "projectUniqueName": "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj",
         "projectName": "PRN_GroceryStoreManagement",
-        "projectPath": "D:\\PRNProject\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj",
-        "packagesPath": "C:\\Users\\ROG STRIX\\.nuget\\packages\\",
-        "outputPath": "D:\\PRNProject\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\obj\\",
+        "projectPath": "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj",
+        "packagesPath": "C:\\Users\\quan6\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ROG STRIX\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\quan6\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -79,21 +83,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\PRNProject\\PRN_SWP\\PRN_GroceryStoreManagement\\TestProject1\\TestProject1.csproj": {
+    "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\TestProject1\\TestProject1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PRNProject\\PRN_SWP\\PRN_GroceryStoreManagement\\TestProject1\\TestProject1.csproj",
+        "projectUniqueName": "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\TestProject1\\TestProject1.csproj",
         "projectName": "TestProject1",
-        "projectPath": "D:\\PRNProject\\PRN_SWP\\PRN_GroceryStoreManagement\\TestProject1\\TestProject1.csproj",
-        "packagesPath": "C:\\Users\\ROG STRIX\\.nuget\\packages\\",
-        "outputPath": "D:\\PRNProject\\PRN_SWP\\PRN_GroceryStoreManagement\\TestProject1\\obj\\",
+        "projectPath": "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\TestProject1\\TestProject1.csproj",
+        "packagesPath": "C:\\Users\\quan6\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\TestProject1\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ROG STRIX\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\quan6\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -107,8 +115,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\PRNProject\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj": {
-                "projectPath": "D:\\PRNProject\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj"
+              "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj": {
+                "projectPath": "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj"
               }
             }
           }
@@ -159,7 +167,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
