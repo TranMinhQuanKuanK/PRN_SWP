@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PRN_GroceryStoreManagement.Models.product;
+using PRN_GroceryStoreManagement.Models.pendingItem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,21 +9,21 @@ using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.inventory
-{ 
+{
     [Authorize(Roles = "Admin")]
-    [Route("UpdateQuantity")]
+    [Route("UpdateSuggestion")]
     [ApiController]
-    public class UpdateQuantity_APIController : ControllerBase
+    public class UpdateSuggestion_APIController : ControllerBase
     {
-        [HttpPost] 
+        [HttpPost]
         public IActionResult UpdateQuantity([FromBody] JsonElement JsonObj)
         {
             int productID = int.Parse(JsonObj.GetProperty("product_ID").GetString());
-            int quantity = int.Parse(JsonObj.GetProperty("new_quantity").GetString());
-            if (quantity >= 0)
+            PendingItemDAO DAO = new PendingItemDAO();
+            bool isExisted = DAO.IsExistedInPendingList(productID);
+            if (isExisted)
             {
-                ProductDAO DAO = new ProductDAO();
-                DAO.changeQuantity(productID, quantity);
+                DAO.UpdatePendingList(productID);
             }
             return new JsonResult(value: null);
         }

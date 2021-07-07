@@ -82,24 +82,29 @@ namespace PRN_GroceryStoreManagement.Models.product
             {
                 Console.WriteLine(e.Message);
             }
+            finally
+            {
+                if (connection != null) connection.Dispose();
+            }
             return listProduct;
         }
         public List<ProductDTO> GetProductListForCashier(int? category_id, String search_value, bool only_noos_items)
         {
             Debug.WriteLine($"category la: {category_id} va search value la {search_value} va only la {only_noos_items}");
+            //---------------đoạn code copy-------------------
+            string ConnectionString = ConnectionStringUtil.GetConnectionString();
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            string SQLString = $"SELECT product_ID, name, quantity"
+                    + ",cost_price,selling_price,lower_threshold,"
+                    + " category_ID,unit_label,is_selling,location "
+                    + " FROM product ";
+            SqlCommand command = new SqlCommand(SQLString, connection);
+            //------------------------------------------------
             try
             {
-                //---------------đoạn code copy-------------------
-                string ConnectionString = "Data Source=localhost,1433;Initial Catalog=SWP_GroceryStoreDB;User ID=SWP;Password=SWPPassword";
-                SqlConnection connection = new SqlConnection(ConnectionString);
-                string SQLString = $"SELECT product_ID, name, quantity"
-                        + ",cost_price,selling_price,lower_threshold,"
-                        + " category_ID,unit_label,is_selling,location "
-                        + " FROM product ";
-                SqlCommand command = new SqlCommand(SQLString, connection);
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-                //------------------------------------------------
+               
                 ProductDTO pDTO = null;
                 if (reader.HasRows == true)
                 {
@@ -149,6 +154,10 @@ namespace PRN_GroceryStoreManagement.Models.product
             {
                 Console.WriteLine(e.Message);
             }
+            finally
+            {
+                if (connection != null) connection.Dispose();
+            }
             return listProduct;
         }
         public ProductDTO GetProductByID(int? id)
@@ -156,7 +165,7 @@ namespace PRN_GroceryStoreManagement.Models.product
             ProductDTO pDTO = null;
 
             //---------------đoạn code copy-------------------
-            string ConnectionString = "Data Source=localhost,1433;Initial Catalog=SWP_GroceryStoreDB;User ID=SWP;Password=SWPPassword";
+            string ConnectionString = ConnectionStringUtil.GetConnectionString();
             SqlConnection connection = new SqlConnection(ConnectionString);
             string SQLString = $"SELECT product_ID, name, quantity"
                     + ",cost_price,selling_price,lower_threshold,"
@@ -203,12 +212,16 @@ namespace PRN_GroceryStoreManagement.Models.product
             {
                 Console.WriteLine(e.Message);
             }
+            finally
+            {
+                if (connection != null) connection.Dispose();
+            }
             return pDTO;
         }
         public bool AddQuantityToProduct(int ProductID, int quantity)
         {
             //---------------đoạn code copy-------------------
-            string ConnectionString = "Data Source=localhost,1433;Initial Catalog=SWP_GroceryStoreDB;User ID=SWP;Password=SWPPassword";
+            string ConnectionString = ConnectionStringUtil.GetConnectionString();
             SqlConnection connection = new SqlConnection(ConnectionString);
             string SQLString = "SELECT quantity, lower_threshold "
                         + " FROM product WHERE product_ID = @product_ID";
@@ -238,8 +251,12 @@ namespace PRN_GroceryStoreManagement.Models.product
             {
                 Console.WriteLine(e.Message);
             }
+            finally
+            {
+                if (connection != null) connection.Dispose();
+            }
             //-------------------------------------------------
-             SQLString = "UPDATE product "
+            SQLString = "UPDATE product "
                         + "SET quantity = @quantity"
                         + " WHERE product_ID = @product_ID ";
             command = new SqlCommand(SQLString, connection);
@@ -267,13 +284,17 @@ namespace PRN_GroceryStoreManagement.Models.product
             {
                 Console.WriteLine(e.Message);
             }
+            finally
+            {
+                if (connection != null) connection.Dispose();
+            }
             return false;
         }
 
         public bool changeQuantity(int productID, int quantity)
         {
             //---------------đoạn code copy-------------------
-            string ConnectionString = "Data Source=localhost,1433;Initial Catalog=SWP_GroceryStoreDB;User ID=SWP;Password=SWPPassword";
+            string ConnectionString = ConnectionStringUtil.GetConnectionString();
             SqlConnection connection = new SqlConnection(ConnectionString);
             string SQLString = "UPDATE product "
                         + "SET quantity = @new_quantity "
@@ -297,6 +318,10 @@ namespace PRN_GroceryStoreManagement.Models.product
             catch (SqlException e)
             {
                 Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (connection != null) connection.Dispose();
             }
             return false;
         }

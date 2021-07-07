@@ -1,14 +1,13 @@
 window.onload = function () {
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState >= 4 && this.status <= 200) {
+    xhttp.onload = function () {
             console.log(this.responseText);
             const selectOptions = JSON.parse(this.responseText);
-            processCategory(selectOptions);
-        }
+            processCategory(selectOptions);       
     };
     xhttp.open("GET", "GetCategoryList", false);
     xhttp.send();
+    getPendingList();
     getProduct();
 };
 
@@ -25,9 +24,10 @@ function processCategory(data) {
     }
 }
 
-var productObject;
-var notification;
-var tempThreshold;
+let productObject;
+let notification;
+let tempThreshold;
+let pendingList;
 
 function getProduct() {
     productObject = null;
@@ -45,14 +45,14 @@ function getProduct() {
         if (cat_ID === "all") {
             var url =
                 "GetProductList?search_value=" + search_val +
-                "&only_noos_items=1";
+                "&only_noos_items=true";
         } else {
             var url =
                 "GetProductList?search_value=" +
                 search_val +
                 "&category_id=" +
                 cat_ID +
-                "&only_noos_items=1";
+                "&only_noos_items=true";
         }
     } else {
         if (cat_ID === "all") {
@@ -66,6 +66,16 @@ function getProduct() {
     xhttp.open("GET", url, false);
     xhttp.send();
 }
+
+function getPendingList() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+        console.log(this.responseText);
+        pendingList = JSON.parse(this.responseText);
+    };
+    xhttp.open("GET", "GetPendingItemList", false);
+    xhttp.send();
+};
 
 function printProductList(data) {
     document.getElementById("tableContent").innerHTML = "";
@@ -103,9 +113,15 @@ function printProductList(data) {
             var td_button = document.createElement("td");
             var Add_bt = document.createElement("a");
 
-            Add_bt.innerHTML = "<i class='fas fa-plus-circle btn-inventory mr-2'></i>";
-            Add_bt.setAttribute("onclick", "addToPendingListByOwner(" + data[i].product_ID + ")");
-    
+            const foundInPending = Boolean(pendingList.filter(item => item.product_ID === data[i].product_ID).length);
+
+            if (foundInPending === false) {
+                Add_bt.innerHTML = "<i class='fas fa-plus-circle btn-inventory mr-2'></i>";
+                Add_bt.setAttribute("onclick", "addToPendingListByOwner(" + data[i].product_ID + ")");
+            } else {
+                Add_bt.innerHTML = "<i class='fas fa-plus-circle btn-inventory mr-2' style='opacity: 0.2;'></i>";
+                Add_bt.setAttribute("style", "pointer-events: none; cursor: default;");
+            }
 
             var Edit_bt = document.createElement("a");
             Edit_bt.innerHTML = "<i class='fas fa-ellipsis-h btn-inventory'></i>";
@@ -150,32 +166,33 @@ function addToPendingListByOwner(productID) {
     xhttp.setRequestHeader('Content-type', 'application/json');
     xhttp.setRequestHeader('Accept', 'application/json');
     xhttp.send(JSON.stringify(JSONObject));
+    getPendingList();
+    getProduct();
 }
 
 
 function addToPendingListAuto(productID) {
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState >= 4 && this.status <= 200) {
+    xhttp.onload = function () {
             console.log(this.responseText);
             notification = JSON.parse(this.responseText);
             if (notification == "1") {
                 notification = "Đã tự động thêm vào Pending List do duới ngưỡng";
-            }
-            alert(notification);
+                alert(notification);        
         }
     };
-    content =
-        "product_ID=" +
-        encodeURIComponent(productID) +
-        "&noti_mess=" +
-        encodeURIComponent("auto");
+    var product_ID = encodeURIComponent(productID);
+    var noti_mess = encodeURIComponent("auto");
+    var JSONObject = {
+        product_ID: product_ID,
+        noti_mess: noti_mess
+    };
     xhttp.open("POST", "AddToSuggestion", false);
-    xhttp.setRequestHeader(
-        "Content-Type",
-        "application/x-www-form-urlencoded;charset=UTF-8"
-    );
-    xhttp.send(content);
+    xhttp.setRequestHeader('Content-type', 'application/json');
+    xhttp.setRequestHeader('Accept', 'application/json');
+    xhttp.send(JSON.stringify(JSONObject));
+    getPendingList();
+    getProduct();
 }
 
 function setUpModal(productID) {
@@ -197,15 +214,15 @@ function setUpModal(productID) {
 
 function changeStatusInPendingListIfHas(productID) {
     var xhttp = new XMLHttpRequest();
-    content =
-        "product_ID=" +
-        encodeURIComponent(productID);
+
+    var product_ID = encodeURIComponent(productID);
+    var JSONObject = {
+        product_ID: product_ID
+    };
     xhttp.open("POST", "UpdateSuggestion", false);
-    xhttp.setRequestHeader(
-        "Content-Type",
-        "application/x-www-form-urlencoded;charset=UTF-8"
-    );
-    xhttp.send(content);
+    xhttp.setRequestHeader('Content-type', 'application/json');
+    xhttp.setRequestHeader('Accept', 'application/json');
+    xhttp.send(JSON.stringify(JSONObject));
 }
 
 function updateQuantity() {
@@ -223,18 +240,18 @@ function updateQuantity() {
     } else {
         changeStatusInPendingListIfHas(productID);
     }
-    content =
-        "product_ID=" +
-        encodeURIComponent(productID) +
-        "&new_quantity=" +
-        encodeURIComponent(newquantity);
+    var product_ID = encodeURIComponent(productID);
+    var new_quantity = encodeURIComponent(newquantity);
+    var JSONObject = {
+        product_ID: product_ID,
+        new_quantity: new_quantity
+    };
     xhttp.open("POST", "UpdateQuantity", false);
-    xhttp.setRequestHeader(
-        "Content-Type",
-        "application/x-www-form-urlencoded;charset=UTF-8"
-    );
-    xhttp.send(content);
+    xhttp.setRequestHeader('Content-type', 'application/json');
+    xhttp.setRequestHeader('Accept', 'application/json');
+    xhttp.send(JSON.stringify(JSONObject));
     document.getElementById("product-newquantity").value = "";
     $("#editModal").modal("hide");
+    getPendingList();
     getProduct();
 }

@@ -50,7 +50,7 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.inventory
                     return new JsonResult("1");
                 }
             }
-            return new JsonResult(null);
+            return new JsonResult(value: null);
         }
 
     }

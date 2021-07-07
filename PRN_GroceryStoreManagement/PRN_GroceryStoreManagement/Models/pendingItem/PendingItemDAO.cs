@@ -43,12 +43,20 @@ namespace PRN_GroceryStoreManagement.Models.pendingItem
                         listPendingNoti.Add(pDTO);
                     }
                 }
-                else return null;
+                else
+                {
+                    connection.Close();
+                    return null;
+                }
                 connection.Close();
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (connection != null) connection.Dispose();
             }
             return listPendingNoti;
         }
@@ -111,12 +119,20 @@ namespace PRN_GroceryStoreManagement.Models.pendingItem
                         suggestionList.Add(DTO);
                     }
                 }
-                else return null;
+                else
+                {
+                    connection.Close();
+                    return null;
+                }
                 connection.Close();
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (connection != null) connection.Dispose();
             }
             return suggestionList;
         }
@@ -148,7 +164,48 @@ namespace PRN_GroceryStoreManagement.Models.pendingItem
             {
                 Console.WriteLine(e.Message);
             }
+            finally
+            {
+                if (connection != null) connection.Dispose();
+            }
+            return false;
+        }
+
+        public bool UpdatePendingList(int productID)
+        {
+            //---------------đoạn code copy-------------------
+            string ConnectionString = ConnectionStringUtil.GetConnectionString();
+            SqlConnection connection = new SqlConnection(ConnectionString);
+            string SQLString = "UPDATE pending_product_noti "
+                        + "SET is_resolved = @resolved "
+                        + "WHERE product_ID = @product_ID and is_resolved = @is_resolved";
+            SqlCommand command = new SqlCommand(SQLString, connection);
+            //------------------------------------------------
+            try
+            {
+                connection.Open();
+
+                command.Parameters.Add("@product_ID", SqlDbType.Int).Value = productID;
+                command.Parameters.Add("@is_resolved", SqlDbType.Bit).Value = false;
+                command.Parameters.Add("@resolved", SqlDbType.Bit).Value = true;
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+                if (reader.HasRows == true)
+                {
+                    return true;
+                }
+                connection.Close();
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (connection != null) connection.Dispose();
+            }
             return false;
         }
     }
+
+    
 }
