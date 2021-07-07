@@ -82,6 +82,11 @@ namespace PRN_GroceryStoreManagement.Models.category
             {
                 Console.WriteLine(e.Message);
             }
+            finally
+            {
+                if (connection != null)
+                    connection.Dispose();
+            }
             return null;
         }
     }

@@ -11,23 +11,21 @@ using System.Threading.Tasks;
 namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.product
 {
     [Authorize(Roles = "Admin")]
-    [Route("AddNewProduct")]
+    [Route("EditProductInfo")]
     [ApiController]
-    public class AddNewProduct_APIController : ControllerBase
+    public class EditProductInfo_APIController : ControllerBase
     {
         [HttpPost]
-        public IActionResult AddNewProduct([FromBody] JsonElement JsonObj)
+        public IActionResult EditProductInfo([FromBody] JsonElement JsonObj)
         {
-            
             bool foundErr = false;
             ProductError err = new ProductError();
             ProductDAO dao = new ProductDAO();
-
             string productName;
             int productCategoryID, productLowerThreshold = 0, productCostPrice = 0, productSellingPrice = 0;
             string productUnitLabel, productLocation;
             bool productIsSelling;
-
+            int productID;
             if (!int.TryParse(JsonObj.GetProperty("productLowerThreshold").GetString(), out productLowerThreshold))
             {
                 foundErr = true;
@@ -41,9 +39,9 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.product
             if (!int.TryParse(JsonObj.GetProperty("productSellingPrice").GetString(), out productSellingPrice))
             {
                 foundErr = true;
-                err.SellingPriceErr ="Tiền bán quá lớn";
+                err.SellingPriceErr = "Tiền bán quá lớn";
             }
-
+            
             if (!foundErr)
             {
                 if (productLowerThreshold < 0)
@@ -63,22 +61,20 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.product
                 }
             }
 
+            
+            productID = int.Parse(JsonObj.GetProperty("productID").GetString());
             productName = JsonObj.GetProperty("productName").GetString();
             productCategoryID = int.Parse(JsonObj.GetProperty("productCategoryID").GetString());
-            //productLowerThreshold = int.Parse(JsonObj.GetProperty("productLowerThreshold").GetString());
-            //productCostPrice = int.Parse(JsonObj.GetProperty("productCostPrice").GetString());
-            //productSellingPrice = int.Parse(JsonObj.GetProperty("productSellingPrice").GetString());
             productUnitLabel = JsonObj.GetProperty("productUnitLabel").GetString();
             productLocation = JsonObj.GetProperty("productLocation").GetString();
             productIsSelling = JsonObj.GetProperty("productIsSelling").GetBoolean();
-
             if (productName.Equals("") || productName.Length > 100)
             {
                 foundErr = true;
                 err.NameErr = "Tên món hàng phải từ 1 tới 100 chữ";
             }
 
-            if (dao.ConfirmMatchedProduct(productName, 0))
+            if (dao.ConfirmMatchedProduct(productName, productID))
             {
                 foundErr = true;
                 err.NameErr = "Tên món hàng đã tồn tại";
@@ -91,7 +87,7 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.product
             }
             else
             {
-                bool result = dao.AddNewProduct(productName, productCategoryID, productLowerThreshold, productCostPrice, productSellingPrice, productUnitLabel, productLocation, productIsSelling);
+                bool result = dao.UpdateProductInfo(productID, productName, productCategoryID, productLowerThreshold, productCostPrice, productSellingPrice, productUnitLabel, productLocation, productIsSelling);
                 if (result)
                 {
                     return new JsonResult(null);
