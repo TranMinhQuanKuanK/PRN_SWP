@@ -178,3 +178,4 @@ D:\PRNProject\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\
 D:\PRNProject\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\ref\PRN_GroceryStoreManagement.dll
 D:\PRNProject\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.pdb
 D:\PRNProject\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.genruntimeconfig.cache
+C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\Sidebar.cshtml.g.cs
