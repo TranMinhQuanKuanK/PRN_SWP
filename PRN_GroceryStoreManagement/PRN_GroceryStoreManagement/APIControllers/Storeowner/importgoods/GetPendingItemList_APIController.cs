@@ -19,7 +19,7 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.importgoods
         [HttpGet]
         public IActionResult GetPendingItemList()
         {
-            List<PendingItemDTO> pendingList = new PendingItemDAO().GetPendingList();
+            List<SuggestionListDTO> pendingList = new PendingItemDAO().GetSuggestionList();
 
             return new JsonResult(pendingList);
         }

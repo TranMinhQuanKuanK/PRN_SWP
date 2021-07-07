@@ -22,7 +22,6 @@
     <Folder Include="Models\feedback\" />
     <Folder Include="Models\statistic\" />
     <Folder Include="Models\previousBill\" />
-    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

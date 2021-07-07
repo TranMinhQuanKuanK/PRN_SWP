@@ -16,7 +16,7 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.inventory
     public class UpdateSuggestion_APIController : ControllerBase
     {
         [HttpPost]
-        public IActionResult UpdateQuantity([FromBody] JsonElement JsonObj)
+        public IActionResult UpdateSuggestion([FromBody] JsonElement JsonObj)
         {
             int productID = int.Parse(JsonObj.GetProperty("product_ID").GetString());
             PendingItemDAO DAO = new PendingItemDAO();

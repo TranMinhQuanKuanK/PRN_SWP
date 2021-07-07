@@ -251,10 +251,7 @@ namespace PRN_GroceryStoreManagement.Models.product
             {
                 Console.WriteLine(e.Message);
             }
-            finally
-            {
-                if (connection != null) connection.Dispose();
-            }
+            
             //-------------------------------------------------
             SQLString = "UPDATE product "
                         + "SET quantity = @quantity"
