@@ -42,12 +42,14 @@ namespace PRN_GroceryStoreManagement.Models.product
                 command.Parameters.Add("@profit", SqlDbType.Int).Value = profit;
 
                 bill_ID = (int)command.ExecuteScalar();
-                
-                connection.Close();
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (connection != null) connection.Close();
             }
             return bill_ID;
         }
@@ -76,12 +78,15 @@ namespace PRN_GroceryStoreManagement.Models.product
 
                 int rowAffected = command.ExecuteNonQuery();
 
-                connection.Close();
                 return rowAffected > 0;
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (connection != null) connection.Close();
             }
             return false;
         }

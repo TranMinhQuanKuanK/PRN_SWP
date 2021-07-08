@@ -82,12 +82,15 @@ namespace PRN_GroceryStoreManagement.Models.pendingItem
 
                 int rowAffected = command.ExecuteNonQuery();
 
-                connection.Close();
                 return rowAffected > 0;
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (connection != null) connection.Close();
             }
             return false;
         }
@@ -124,6 +127,7 @@ namespace PRN_GroceryStoreManagement.Models.pendingItem
                     connection.Close();
                     return null;
                 }
+
                 connection.Close();
             }
             catch (SqlException e)
@@ -132,7 +136,7 @@ namespace PRN_GroceryStoreManagement.Models.pendingItem
             }
             finally
             {
-                if (connection != null) connection.Dispose();
+                if (connection != null) connection.Close();
             }
             return suggestionList;
         }
@@ -166,7 +170,7 @@ namespace PRN_GroceryStoreManagement.Models.pendingItem
             }
             finally
             {
-                if (connection != null) connection.Dispose();
+                if (connection != null) connection.Close();
             }
             return false;
         }
@@ -201,7 +205,7 @@ namespace PRN_GroceryStoreManagement.Models.pendingItem
             }
             finally
             {
-                if (connection != null) connection.Dispose();
+                if (connection != null) connection.Close();
             }
             return false;
         }

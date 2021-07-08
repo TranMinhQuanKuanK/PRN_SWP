@@ -76,7 +76,6 @@ namespace PRN_GroceryStoreManagement.Models.product
                     }
                 }
                 else return null;
-                connection.Close();
             }
             catch (SqlException e)
             {
@@ -84,7 +83,7 @@ namespace PRN_GroceryStoreManagement.Models.product
             }
             finally
             {
-                if (connection != null) connection.Dispose();
+                if (connection != null) connection.Close();
             }
             return listProduct;
         }
@@ -148,7 +147,7 @@ namespace PRN_GroceryStoreManagement.Models.product
                     }
                 }
                 else return null;
-                connection.Close();
+             
             }
             catch (SqlException e)
             {
@@ -156,7 +155,7 @@ namespace PRN_GroceryStoreManagement.Models.product
             }
             finally
             {
-                if (connection != null) connection.Dispose();
+                if (connection != null) connection.Close();
             }
             return listProduct;
         }
@@ -206,7 +205,6 @@ namespace PRN_GroceryStoreManagement.Models.product
                     }
                 }
                 else return null;
-                connection.Close();
             }
             catch (SqlException e)
             {
@@ -214,8 +212,7 @@ namespace PRN_GroceryStoreManagement.Models.product
             }
             finally
             {
-                if (connection != null)
-                    connection.Dispose();
+                if (connection != null) connection.Close();
             }
             return pDTO;
         }
@@ -253,7 +250,7 @@ namespace PRN_GroceryStoreManagement.Models.product
             }
             finally
             {
-                if (connection != null) connection.Dispose();
+                if (connection != null) connection.Close();
             }
             //-------------------------------------------------
             SQLString = "UPDATE product "
@@ -286,7 +283,7 @@ namespace PRN_GroceryStoreManagement.Models.product
             }
             finally
             {
-                if (connection != null) connection.Dispose();
+                if (connection != null) connection.Close();
             }
             return false;
         }
@@ -331,8 +328,7 @@ namespace PRN_GroceryStoreManagement.Models.product
             }
             finally
             {
-                if (connection != null)
-                    connection.Dispose();
+                if (connection != null) connection.Close();
             }
             return false;
         }
@@ -360,7 +356,6 @@ namespace PRN_GroceryStoreManagement.Models.product
                 command.Parameters.Add("@is_selling", SqlDbType.Bit).Value = isSelling;
 
                 int rowAffected = command.ExecuteNonQuery();
-                connection.Close();
                 return rowAffected > 0;
             }
             catch (SqlException e)
@@ -369,8 +364,7 @@ namespace PRN_GroceryStoreManagement.Models.product
             }
             finally
             {
-                if (connection != null)
-                    connection.Dispose();
+                if (connection != null) connection.Close();
             }
             return false;
         }
@@ -395,8 +389,6 @@ namespace PRN_GroceryStoreManagement.Models.product
                 {
                     return true;
                 }
-
-                connection.Close();
             }
             catch (SqlException e)
             {
@@ -404,7 +396,7 @@ namespace PRN_GroceryStoreManagement.Models.product
             }
             finally
             {
-                if (connection != null) connection.Dispose();
+                if (connection != null) connection.Close();
             }
             return false;
         }
@@ -439,7 +431,6 @@ namespace PRN_GroceryStoreManagement.Models.product
                 command.Parameters.Add("@product_ID", SqlDbType.Int).Value = ProductID;
 
                 int rowAffected = command.ExecuteNonQuery();
-                connection.Close();
                 return rowAffected > 0;
             }
             catch (SqlException e)
@@ -448,8 +439,7 @@ namespace PRN_GroceryStoreManagement.Models.product
             }
             finally
             {
-                if (connection != null)
-                    connection.Dispose();
+                if (connection != null) connection.Close();
             }
             return false;
         }

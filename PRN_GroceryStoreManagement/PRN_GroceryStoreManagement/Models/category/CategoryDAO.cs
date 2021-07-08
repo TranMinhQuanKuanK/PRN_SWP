@@ -39,7 +39,6 @@ namespace PRN_GroceryStoreManagement.Models.category
                     }
                 }
                 else return null;
-                connection.Close();
             }
             catch (SqlException e)
             {
@@ -47,7 +46,7 @@ namespace PRN_GroceryStoreManagement.Models.category
             }
             finally
             {
-                if (connection != null) connection.Dispose();
+                if (connection != null) connection.Close();
             }
             return listCategory;
         }
@@ -79,7 +78,6 @@ namespace PRN_GroceryStoreManagement.Models.category
                         return cDTO;
                     }
                 }
-                connection.Close();
             }
             catch (SqlException e)
             {
@@ -87,7 +85,7 @@ namespace PRN_GroceryStoreManagement.Models.category
             }
             finally 
             { 
-                if (connection != null) connection.Dispose(); 
+                if (connection != null) connection.Close(); 
             }
             return null;
         }

@@ -92,7 +92,10 @@ namespace PRN_GroceryStoreManagement.Models.feedback
             {
                 Console.WriteLine(e.Message);
             }
-            connection.Close();
+            finally
+            {
+                if (connection != null) connection.Close();
+            }
             return listFeedback;
         }
 
@@ -142,7 +145,10 @@ namespace PRN_GroceryStoreManagement.Models.feedback
             {
                 Console.WriteLine(e.Message);
             }
-            connection.Close();
+            finally
+            {
+                if (connection != null) connection.Close();
+            }  
             return listFeedback;
         }
 
@@ -169,7 +175,10 @@ namespace PRN_GroceryStoreManagement.Models.feedback
             {
                 Console.WriteLine(e.Message);
             }
-            connection.Close();
+            finally
+            {
+                if (connection != null) connection.Close();
+            }
             return false;
         }
         
