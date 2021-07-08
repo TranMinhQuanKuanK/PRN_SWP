@@ -16,10 +16,9 @@ namespace PRN_GroceryStoreManagement.Models.receipt
             //---------------đoạn code copy-------------------
             string ConnectionString = ConnectionStringUtil.GetConnectionString();
             SqlConnection connection = new SqlConnection(ConnectionString);
-            string SQLString = "INSERT INTO receipt(import_date, store_owner_username, total) "
+            string SQLString = "INSERT INTO receipt(import_date, store_owner_username, total) output INSERTED.receipt_ID "
                              + " VALUES (@import_date, @store_owner_username ,@total)";
             SqlCommand command = new SqlCommand(SQLString, connection);
-            MySqlCommand cmd = new MySqlCommand();
             //------------------------------------------------
             int receiptID = 0;
             try
@@ -30,7 +29,7 @@ namespace PRN_GroceryStoreManagement.Models.receipt
                 command.Parameters.Add("@store_owner_username", SqlDbType.NVarChar).Value = username;
                 command.Parameters.Add("@total", SqlDbType.Int).Value = total;
 
-                receiptID = Convert.ToInt32(command.ExecuteScalar());
+                receiptID = (int)command.ExecuteScalar();
                 connection.Close();
             }
             catch (SqlException e)
