@@ -31,5 +31,18 @@ namespace PRN_GroceryStoreManagement.Utils
 
             return original_builder.Replace("  ", " |").Replace("| ", "").Replace("|", "").ToString();
         }
+
+        public static String dateNormalize(String original)
+        {
+            String normalizedDate = "";
+            normalizedDate += original.Substring(8, 2) + '/';
+            normalizedDate += original.Substring(5, 2) + '/';
+            normalizedDate += original.Substring(0, 2) + ' ';
+            normalizedDate += original.Substring(11, 5);
+
+            return normalizedDate;
+        }
     }
+
+
 }

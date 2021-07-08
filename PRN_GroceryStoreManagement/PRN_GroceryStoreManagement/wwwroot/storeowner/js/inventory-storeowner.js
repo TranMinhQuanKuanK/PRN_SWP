@@ -118,11 +118,10 @@ function printProductList(data) {
                 const foundInPending = Boolean(pendingList.filter(item => item.product_ID === data[i].product_ID).length);
 
                 if (foundInPending === false) {
-                    Add_bt.innerHTML = "<i class='fas fa-plus-circle btn-inventory mr-2'></i>";
+                    Add_bt.innerHTML = "<i class='far fa-share-square btn-inventory mr-2' style='cursor: pointer;'></i>";
                     Add_bt.setAttribute("onclick", "addToPendingListByOwner(" + data[i].product_ID + ")");
                 } else {
-                    Add_bt.innerHTML = "<i class='fas fa-plus-circle btn-inventory mr-2' style='opacity: 0.2;'></i>";
-                    Add_bt.setAttribute("style", "pointer-events: none; cursor: default;");
+                    Add_bt.innerHTML = "<i class='far fa-share-square btn-inventory mr-2' style='opacity: 0.2; cursor: not-allowed;'></i>";
                 }
             } else {
                 Add_bt.innerHTML = "<i class='fas fa-plus-circle btn-inventory mr-2'></i>";

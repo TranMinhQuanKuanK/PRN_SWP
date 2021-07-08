@@ -16,7 +16,6 @@ namespace PRN_GroceryStoreManagement.Models.product
         private List<ProductDTO> listProduct = new List<ProductDTO>();
         public List<ProductDTO> GetProductList(int? category_id, String search_value, bool only_noos_items)
         {
-
             //---------------đoạn code copy-------------------
             string ConnectionString = ConnectionStringUtil.GetConnectionString();
             SqlConnection connection = new SqlConnection(ConnectionString);
