@@ -25,7 +25,6 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.inventory
                 notiMessage = "Được thêm bởi store owner";
                 DateTime notedate = DateTime.Now;                   
                 PendingItemDAO DAO = new PendingItemDAO();
-                string? returnMess = null;
                 bool isExisted = DAO.IsExistedInPendingList(productID);
                 if (!isExisted)
                 { // chưa tồn tại trong Pending thì ghi xuống
@@ -42,7 +41,6 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.inventory
                 notiMessage = "Được thêm tự động";
                 DateTime notedate = DateTime.Now;
                 PendingItemDAO DAO = new PendingItemDAO();
-                string? returnMess = null;
                 bool isExisted = DAO.IsExistedInPendingList(productID);
                 if (!isExisted)
                 {

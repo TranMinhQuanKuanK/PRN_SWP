@@ -12,6 +12,7 @@ namespace PRN_GroceryStoreManagement.Models.pendingItem
     {
         private List<PendingItemDTO> listPendingNoti = new List<PendingItemDTO>();
         private List<SuggestionListDTO> suggestionList = new List<SuggestionListDTO>();
+
         public List<PendingItemDTO> GetPendingList()
         {
             //---------------đoạn code copy-------------------
