@@ -22,6 +22,7 @@ FEEDBACK CHƯA ĐỌC: Dòng 435
             body {
                 color: #000;
             }
+
             .list-group-item:hover,
             .list-group-item:focus {
                 background-color: #e0e0e0;
@@ -50,10 +51,22 @@ FEEDBACK CHƯA ĐỌC: Dòng 435
                 overflow: auto;
             }
 
+            #feedback-section button {
+                color: #1ac88a;
+                opacity: 0.9;
+            }
+
+            #feedback-section button:hover,
+            #feedback-section button:focus {
+                color: #38ac2e;
+                opacity: 1;
+            }
+
             @@media (max-width: 1300px) {
                 .card-heading {
                     min-height: 90px;
                 }
+
                 h5 {
                     min-height: 48px;
                 }
@@ -63,6 +76,7 @@ FEEDBACK CHƯA ĐỌC: Dòng 435
                 .card-heading {
                     min-height: 130px;
                 }
+
                 h5 {
                     min-height: 70px;
                 }
@@ -72,14 +86,39 @@ FEEDBACK CHƯA ĐỌC: Dòng 435
                 .card-heading {
                     min-height: 80px;
                 }
+
                 h5 {
                     min-height: 30px;
                 }
             }
     </style>
+    <!--favicon link-->
+    <link rel="apple-touch-icon" sizes="57x57" href="/storeowner/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/storeowner/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/storeowner/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/storeowner/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"
+          href="/storeowner/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"
+          href="/storeowner/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"
+          href="/storeowner/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"
+          href="/storeowner/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"
+          href="/storeowner/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"
+          href="/storeowner/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/storeowner/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/storeowner/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/storeowner/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/storeowner/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 </head>
 
-<body id="page-top" onload="PageLoad()">
+<body id="page-top">
     <!-- Sidebar -->
     <div id="wrapper">
         <div id="sidebar-placeholder">
@@ -90,10 +129,10 @@ FEEDBACK CHƯA ĐỌC: Dòng 435
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <div class="row d-sm-flex align-items-center justify-content-between mb-4 mt-3">
+                    <div class="d-sm-flex align-items-center justify-content-between my-3">
                         <h1 class="mb-0" id="header-page">TRANG CHỦ</h1>
                         <button class="btn d-none d-sm-inline-block btn btn-lg shadow-sm bg-primary"
-                                onclick="window.location.href = 'ProductList';">
+                                onclick="window.location.href = 'ImportGoodsPage';">
                             <i class="fas fa-box-open" style="color: #fff;"></i>&nbsp;
                             <span class="button-back-text text-light">Nhập hàng</span>
                         </button>
@@ -111,7 +150,9 @@ FEEDBACK CHƯA ĐỌC: Dòng 435
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-10">
                                             <div class="font-weight-bold text-light text-uppercase">
-                                                <h4 class="font-weight-bold pt-1">Doanh thu <span class="statistics-info"></span></h4>
+                                                <h4 class="font-weight-bold pt-1">
+                                                    Doanh thu <span class="statistics-info"></span>
+                                                </h4>
                                             </div>
                                             <div id="sum-revenue" class="h4 mb-0 font-weight-bold text-gray-100">
                                             </div>
@@ -129,7 +170,9 @@ FEEDBACK CHƯA ĐỌC: Dòng 435
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-10">
                                             <div class="font-weight-bold text-light text-uppercase">
-                                                <h4 class="font-weight-bold pt-1">Lợi nhuận <span class="statistics-info"></span></h4>
+                                                <h4 class="font-weight-bold pt-1">
+                                                    Lợi nhuận <span class="statistics-info"></span>
+                                                </h4>
                                             </div>
                                             <div id="sum-profit" class="h4 mb-0 font-weight-bold text-gray-100">
                                             </div>
@@ -147,7 +190,9 @@ FEEDBACK CHƯA ĐỌC: Dòng 435
                                     <div class="row no-gutters align-items-center">
                                         <div class="col-10">
                                             <div class="font-weight-bold text-light text-uppercase">
-                                                <h4 class="font-weight-bold pt-1">Tổng số đơn <span class="statistics-info"></span></h4>
+                                                <h4 class="font-weight-bold pt-1">
+                                                    Tổng số đơn <span class="statistics-info"></span>
+                                                </h4>
                                             </div>
                                             <div id="bill-count" class="h4 mb-0 font-weight-bold text-gray-100">
                                             </div>
@@ -167,30 +212,20 @@ FEEDBACK CHƯA ĐỌC: Dòng 435
 
                         <!-- ĐÂY LÀ CHỖ CỦA HÀNG SẮP HẾT -->
                         <div class="col-12 col-lg-4 mb-2">
-                            <div class="card border-left-danger p-2 shadow-sm" style="min-height: 540px; max-height: 545px;">
+                            <div class="card border-left-danger p-2 shadow-sm"
+                                 style="min-height: 540px; max-height: 545px;">
                                 <div class="card-heading">
                                     <h5 class="font-weight-bold header-center" style="color: #ed7468;">HÀNG SẮP HẾT</h5>
                                     <div class="d-flex justify-content-end">
-                                        <button style="max-height: 30px;" type="button" class="btn btn-danger btn-sm" onclick="window.location.href = 'inventory'">
+                                        <button style="max-height: 30px;" type="button" class="btn btn-danger btn-sm"
+                                                onclick="window.location.href = 'InventoryPage'">
                                             <span>Xem chi tiết</span>
                                         </button>
                                     </div>
                                 </div>
 
                                 <div class="overflow-auto">
-                                    <ul class="list-group">
-                                        <li class="list-group-item">
-                                            <div class="d-flex justify-content-between">
-                                                <span>
-                                                    1. Bánh mì xxx
-                                                </span>
-                                                <div class="d-flex" role="group">
-                                                    <button type="button" class="btn btn-outline-danger btn-sm mr-2">Thêm</button>
-                                                    <button type="button" class="btn btn-outline-secondary btn-sm">Bỏ qua</button>
-                                                </div>
-                                            </div>
-                                        </li>
-
+                                    <ul class="list-group overflow-text" id="pending-list-on-dashboard">
                                     </ul>
                                 </div>
                             </div>
@@ -198,28 +233,23 @@ FEEDBACK CHƯA ĐỌC: Dòng 435
 
                         <!-- ĐÂY LÀ CHỖ CỦA TOP 10 KHÁCH HÀNG -->
                         <div class="col-12 col-lg-4 mb-2">
-                            <div class="card p-2 shadow-sm border-left-info" style="min-height: 540px; max-height: 545px;">
+                            <div class="card p-2 shadow-sm border-left-info"
+                                 style="min-height: 540px; max-height: 545px;">
                                 <div class="card-heading">
-                                    <h5 class="font-weight-bold header-center" style="color: #36b9cc;">TOP 10 KHÁCH HÀNG <span class="statistics-info"></span></h5>
+                                    <h5 class="font-weight-bold header-center" style="color: #36b9cc;">
+                                        TOP 10 KHÁCH HÀNG
+                                        <span class="statistics-info"></span>
+                                    </h5>
                                     <div class="d-flex justify-content-between">
                                         <p class="ml-1" style="color: #36b9cc;">(theo tổng chi tiêu)</p>
-                                        <button type="button" style="max-height: 30px;" class="btn btn-info btn-sm" onclick="window.location.href = 'PreviousBills'">
+                                        <button type="button" style="max-height: 30px;" class="btn btn-info btn-sm"
+                                                onclick="window.location.href = 'PreviousBillPage'">
                                             <span>Xem chi tiết</span>
                                         </button>
                                     </div>
                                 </div>
                                 <div class="overflow-auto">
                                     <ul class="list-group overflow-text" id="top-customer">
-                                        <!--                                                <li class="list-group-item bg-info text-light" style="position: relative">
-                                                                                            <div class="d-flex justify-content-between">
-                                                                                                <p class="my-auto w-75">
-                                                                                                    Tên khách hàng
-                                                                                                </p>
-                                                                                                <p class="my-auto w-25 text-right">
-                                                                                                    Tổng chi
-                                                                                                </p>
-                                                                                            </div>
-                                                                                        </li>-->
                                     </ul>
                                 </div>
                             </div>
@@ -228,70 +258,44 @@ FEEDBACK CHƯA ĐỌC: Dòng 435
 
                         <!-- ĐÂY LÀ CHỖ CỦA TOP 10 SẢN PHẨM -->
                         <div class="col-12 col-lg-4 d-flex flex-column mb-2">
-                            <div class="card p-2 shadow-sm border-left-custom" style="min-height: 315px; max-height: 320px; margin-bottom: 10px;">
+                            <div class="card p-2 shadow-sm border-left-custom"
+                                 style="min-height: 315px; max-height: 320px; margin-bottom: 10px;">
                                 <div class="card-heading">
-                                    <h5 class="font-weight-bold header-center" style="color: #AA2EE6;">TOP 10 SẢN PHẨM <span class="statistics-info"></span></h5>
+                                    <h5 class="font-weight-bold header-center" style="color: #AA2EE6;">
+                                        TOP 10 SẢN PHẨM
+                                        <span class="statistics-info"></span>
+                                    </h5>
                                     <div class="d-flex justify-content-between">
                                         <p class="ml-1" style="color: #AA2EE6;">(theo số lượng đã bán)</p>
                                         <button style="max-height: 30px;" type="button" class="btn btn-custom btn-sm"
-                                                onclick="window.location.href = 'Statistics'">
+                                                onclick="window.location.href = 'StatisticsPage'">
                                             <span>Xem chi tiết</span>
                                         </button>
                                     </div>
                                 </div>
                                 <div class="overflow-auto">
                                     <ul class="list-group overflow-text" id="top-product">
-                                        <!--                                                <li class="list-group-item bg-dark text-light">
-                                                                                            <div class="d-flex justify-content-between">
-                                                                                                <p class="my-auto w-75">
-                                                                                                    Tên sản phẩm
-                                                                                                </p>
-                                                                                                <p class="my-auto w-25 text-right">
-                                                                                                    Số lượng
-                                                                                                </p>
-                                                                                            </div>
-                                                                                        </li>-->
                                     </ul>
                                 </div>
                             </div>
 
 
                             <!-- ĐÂY LÀ CHỖ CỦA FEEDBACK CHƯA ĐỌC -->
-                            <div class="card p-2 shadow-sm border-left-success" style="min-height: 210px; max-height: 215px;">
+                            <div class="card p-2 shadow-sm border-left-success"
+                                 style="min-height: 210px; max-height: 215px;">
                                 <div class="card-heading">
-                                    <h5 class="font-weight-bold header-center" style="color: #1cc88a;">FEEDBACK CHƯA ĐỌC</h5>
+                                    <h5 class="font-weight-bold header-center" style="color: #1cc88a;">
+                                        FEEDBACK CHƯA ĐỌC
+                                    </h5>
                                     <div class="d-flex justify-content-end">
-                                        <button style="max-height: 30px;" type="button" class="btn btn-success btn-sm" onclick="window.location.href = 'FeedbackList'">
+                                        <button style="max-height: 30px;" type="button" class="btn btn-success btn-sm"
+                                                onclick="window.location.href = 'FeedbackListPage'">
                                             <span>Xem chi tiết</span>
                                         </button>
                                     </div>
                                 </div>
                                 <div class="overflow-auto">
                                     <ul class="list-group overflow-text" id="feedback-section">
-                                        <li class="list-group-item">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="my-auto w-80">
-                                                    Ông khách aBc có hành vi XyZ với nhân viên !@@#
-                                                </p>
-                                                <div class="w-20 text-right">
-                                                    <button type="button" class="btn btn-sm">
-                                                        <i class="fas fa-check-circle fa-2x text-gray-600"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="d-flex justify-content-between">
-                                                <p class="my-auto w-80">
-                                                    Ông khách aBc có hành vi XyZ với nhân viên !@@#
-                                                </p>
-                                                <div class="w-20 text-right">
-                                                    <button type="button" class="btn btn-sm">
-                                                        <i class="fas fa-check-circle fa-2x text-gray-600"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -338,4 +342,5 @@ FEEDBACK CHƯA ĐỌC: Dòng 435
         }
     </script>
 </body>
+
 </html>

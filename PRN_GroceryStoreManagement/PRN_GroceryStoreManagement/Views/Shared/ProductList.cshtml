@@ -40,20 +40,20 @@
             color: #fff;
         }
     </style>
-    <link rel="apple-touch-icon" sizes="57x57" href="/GroceryStoreManagement/storeowner/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/GroceryStoreManagement/storeowner/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/GroceryStoreManagement/storeowner/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/GroceryStoreManagement/storeowner/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/GroceryStoreManagement/storeowner/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/GroceryStoreManagement/storeowner/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/GroceryStoreManagement/storeowner/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/GroceryStoreManagement/storeowner/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/GroceryStoreManagement/storeowner/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/GroceryStoreManagement/storeowner/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/GroceryStoreManagement/storeowner/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/GroceryStoreManagement/storeowner/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/GroceryStoreManagement/storeowner/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/GroceryStoreManagement/storeowner/favicon/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="/storeowner/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/storeowner/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/storeowner/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/storeowner/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/storeowner/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/storeowner/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/storeowner/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/storeowner/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/storeowner/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/storeowner/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/storeowner/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/storeowner/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/storeowner/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/storeowner/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -67,7 +67,6 @@
 
         <!-- Sidebar -->
         <div id="sidebar-placeholder">
-
         </div>
 
         <!-- End of Sidebar -->
@@ -123,16 +122,16 @@
                                         </div>
 
                                         <!--                                            <div class="col-4 my-auto">
-                                                                                        <form class=" d-flex justify-content-center">
-                                                                                            <div class="form-check mx-auto">
-                                                                                                <input class="form-check-input" type="checkbox" value="outOfStock"
-                                                                                                       id="outOfStockItems">
-                                                                                                <label class="form-check-label" for="outOfStockItems">
-                                                                                                    Xem những mặt hàng dưới ngưỡng
-                                                                                                </label>
-                                                                                            </div>
-                                                                                        </form>
-                                                                                    </div>-->
+                                                                                    <form class=" d-flex justify-content-center">
+                                                                                        <div class="form-check mx-auto">
+                                                                                            <input class="form-check-input" type="checkbox" value="outOfStock"
+                                                                                                   id="outOfStockItems">
+                                                                                            <label class="form-check-label" for="outOfStockItems">
+                                                                                                Xem những mặt hàng dưới ngưỡng
+                                                                                            </label>
+                                                                                        </div>
+                                                                                    </form>
+                                                                                </div>-->
                                         <div class="col-5 my-auto d-flex justify-content-end ">
                                             <div id="length-menu" class="">
                                                 <!-- Length Menu -->
@@ -411,6 +410,11 @@
     <!--        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.js"></script>-->
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.25/b-1.7.1/datatables.min.js"></script>
     <script src="/storeowner/js/productList/productList.js" type="text/javascript"></script>
+    <script>
+        $.get("Sidebar", function (data) {
+            $("#sidebar-placeholder").replaceWith(data);
+        });
+    </script>
 </body>
 
 </html>
