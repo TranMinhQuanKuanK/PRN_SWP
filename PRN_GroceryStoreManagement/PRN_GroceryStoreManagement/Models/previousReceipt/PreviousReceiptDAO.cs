@@ -82,6 +82,10 @@ namespace PRN_GroceryStoreManagement.Models.previousReceipt
             {
                 Console.WriteLine(e.Message);
             }
+            finally
+            {
+                if (connection != null) connection.Dispose();
+            }
             return owner_name;
         }
 
