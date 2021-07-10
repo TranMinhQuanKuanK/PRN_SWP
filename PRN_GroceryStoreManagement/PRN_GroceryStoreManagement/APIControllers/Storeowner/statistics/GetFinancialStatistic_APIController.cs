@@ -13,6 +13,7 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.statistics
     [Authorize(Roles = "Admin")]
     public class GetFinancialStatistic_APIController : Controller
     {
+        [HttpGet]
         public IActionResult GetFinancialStatistic(string date_from, string date_to)
         {
             StatisticErrorObj errors = new StatisticErrorObj();

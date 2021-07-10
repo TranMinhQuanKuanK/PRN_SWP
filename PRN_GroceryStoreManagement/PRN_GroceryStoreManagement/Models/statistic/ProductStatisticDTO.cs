@@ -9,7 +9,7 @@ namespace PRN_GroceryStoreManagement.Models.statistic
     {
         public int Quantity { get; set; }
         public int Total { get; set; }
-        public string ProdcutName { get; set; }
+        public string ProductName { get; set; }
 
     }
 }

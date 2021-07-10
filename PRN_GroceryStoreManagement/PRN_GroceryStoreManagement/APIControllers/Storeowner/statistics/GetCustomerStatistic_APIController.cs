@@ -14,6 +14,7 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.statistics
 
     public class GetCustomerStatistic_APIController : Controller
     {
+        [HttpGet]
         public IActionResult GetCustomerStatistic(string date_from, string date_to)
         {
             StatisticErrorObj errors = new StatisticErrorObj();

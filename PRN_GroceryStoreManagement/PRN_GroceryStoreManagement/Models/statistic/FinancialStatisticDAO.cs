@@ -15,12 +15,16 @@ namespace PRN_GroceryStoreManagement.Models.statistic
             string ConnectionString = ConnectionStringUtil.GetConnectionString();
             SqlConnection connection = new SqlConnection(ConnectionString);
             string SQLString = "SELECT COUNT(*) count_bill FROM customer_bill "
-                        + $"WHERE {dateFrom} <= buy_date AND buy_date <= {dateTo}";
+                        + $"WHERE @date_from <= buy_date AND buy_date <= @date_to";
 
-            SqlCommand command = new SqlCommand(SQLString, connection);
+
             int countBill = 0;
             try
             {
+                SqlCommand command = new SqlCommand(SQLString, connection);
+                command.Parameters.Add("@date_from", SqlDbType.NVarChar).Value = dateFrom;
+                command.Parameters.Add("@date_to", SqlDbType.NVarChar).Value = dateTo;
+
                 connection.Open();
                 SqlDataReader Reader = command.ExecuteReader(CommandBehavior.CloseConnection);
 
@@ -38,25 +42,22 @@ namespace PRN_GroceryStoreManagement.Models.statistic
             }
         }
 
-        public int getReceiptCount (string dateFrom, string dateTo)
+        public int getReceiptCount(string dateFrom, string dateTo)
         {
             string ConnectionString = ConnectionStringUtil.GetConnectionString();
             SqlConnection connection = new SqlConnection(ConnectionString);
             string SQLString = "SELECT COUNT(*) count_receipt FROM receipt "
-                        + $"WHERE {dateFrom} <= import_date AND import_date <= {dateTo}";
+                        + $"WHERE @date_from <= import_date AND import_date <= @date_to";
 
             SqlCommand command = new SqlCommand(SQLString, connection);
+            command.Parameters.Add("@date_from", SqlDbType.NVarChar).Value = dateFrom;
+            command.Parameters.Add("@date_to", SqlDbType.NVarChar).Value = dateTo;
             int countReceipt = 0;
 
             try
             {
                 connection.Open();
-                SqlDataReader Reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-
-                while (Reader.Read())
-                {
-                    countReceipt = Reader.GetInt32(0);
-                }
+                countReceipt = (int)command.ExecuteScalar();
 
                 connection.Close();
                 return countReceipt;
@@ -72,7 +73,7 @@ namespace PRN_GroceryStoreManagement.Models.statistic
             string ConnectionString = ConnectionStringUtil.GetConnectionString();
             SqlConnection connection = new SqlConnection(ConnectionString);
 
-            if(dateFrom.Length == 7)
+            if (dateFrom.Length == 7)
             {
                 dateFrom += "-01";
             }
@@ -83,20 +84,18 @@ namespace PRN_GroceryStoreManagement.Models.statistic
             }
 
             string SQLString = "SELECT SUM(total_cost) sum_revenue FROM customer_bill "
-                        + $"WHERE {dateFrom} <= buy_date AND buy_date < {dateTo}";
+                        + $"WHERE @date_from <= buy_date AND buy_date < @date_to";
 
             SqlCommand command = new SqlCommand(SQLString, connection);
             int sumRevenue = 0;
-
+            command.Parameters.Add("@date_from", SqlDbType.NVarChar).Value = dateFrom;
+            command.Parameters.Add("@date_to", SqlDbType.NVarChar).Value = dateTo;
             try
             {
                 connection.Open();
-                SqlDataReader Reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-
-                while (Reader.Read())
-                {
-                    sumRevenue = Reader.GetInt32(0);
-                }
+                if (command.ExecuteScalar() == DBNull.Value)
+                    sumRevenue = 0;
+                else sumRevenue = (int)command.ExecuteScalar();
 
                 connection.Close();
                 return sumRevenue;
@@ -123,20 +122,18 @@ namespace PRN_GroceryStoreManagement.Models.statistic
             }
 
             string SQLString = "SELECT SUM(profit) sum_profit FROM customer_bill "
-                        + $"WHERE {dateFrom} <= buy_date AND buy_date < {dateTo}";
+                        + $"WHERE @date_from <= buy_date AND buy_date <= @date_to";
 
             SqlCommand command = new SqlCommand(SQLString, connection);
             int sumProfit = 0;
-
+            command.Parameters.Add("@date_from", SqlDbType.NVarChar).Value = dateFrom;
+            command.Parameters.Add("@date_to", SqlDbType.NVarChar).Value = dateTo;
             try
             {
                 connection.Open();
-                SqlDataReader Reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-
-                while (Reader.Read())
-                {
-                    sumProfit = Reader.GetInt32(0);
-                }
+                if (command.ExecuteScalar() == DBNull.Value)
+                    sumProfit = 0;
+                else sumProfit = (int)command.ExecuteScalar();
 
                 connection.Close();
                 return sumProfit;
@@ -152,20 +149,18 @@ namespace PRN_GroceryStoreManagement.Models.statistic
             string ConnectionString = ConnectionStringUtil.GetConnectionString();
             SqlConnection connection = new SqlConnection(ConnectionString);
             string SQLString = "SELECT SUM(total) sum_cost FROM receipt "
-                        + $"WHERE {dateFrom} <= import_date AND import_date <= {dateTo}";
+                        + $"WHERE @date_from <= import_date AND import_date <= @date_to";
 
             SqlCommand command = new SqlCommand(SQLString, connection);
             int sumCost = 0;
-
+            command.Parameters.Add("@date_from", SqlDbType.NVarChar).Value = dateFrom;
+            command.Parameters.Add("@date_to", SqlDbType.NVarChar).Value = dateTo;
             try
             {
                 connection.Open();
-                SqlDataReader Reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-
-                while (Reader.Read())
-                {
-                    sumCost = Reader.GetInt32(0);
-                }
+                if (command.ExecuteScalar() == DBNull.Value)
+                    sumCost = 0;
+                else sumCost = (int)command.ExecuteScalar();
 
                 connection.Close();
                 return sumCost;

@@ -24,13 +24,15 @@ namespace PRN_GroceryStoreManagement.Models.statistic
                 string SQLString = "SELECT customer.phone_no, total_cost, name "
                             + "FROM customer_bill "
                             + "JOIN customer ON customer.phone_no = customer_bill.phone_no "
-                            + $"WHERE {dateFrom} <= buy_date AND buy_date <= {dateTo}";
-
+                            + $"WHERE @date_from <= buy_date AND buy_date <= @date_to";
                 SqlCommand command = new SqlCommand(SQLString, connection);
+
+                command.Parameters.Add("@date_from", SqlDbType.NVarChar).Value = dateFrom;
+                command.Parameters.Add("@date_to", SqlDbType.NVarChar).Value = dateTo;
 
                 connection.Open();
                 SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-
+               
                 if (reader.HasRows == true)
                 {
                     while (reader.Read())
@@ -50,7 +52,7 @@ namespace PRN_GroceryStoreManagement.Models.statistic
                             quantity += this.customerStatisticMap[phoneNum].Quantity;
                             total += this.customerStatisticMap[phoneNum].Total;
                         }
-
+                        else 
                         this.customerStatisticMap.Add(phoneNum, new CustomerStatisticDTO
                         {
                             CustomerName = customerName,
