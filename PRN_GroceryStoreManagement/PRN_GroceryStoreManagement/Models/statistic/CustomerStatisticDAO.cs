@@ -9,7 +9,7 @@ using System.Data;
 
 namespace PRN_GroceryStoreManagement.Models.statistic
 {
-    public class CutomerStatisticDAO
+    public class CustomerStatisticDAO
     {
         private Dictionary<String, CustomerStatisticDTO> customerStatisticMap = null;
 
