@@ -14,17 +14,13 @@
 
   <ItemGroup>
     <Folder Include="APIControllers\Storeowner\feedback\" />
-    <Folder Include="APIControllers\Storeowner\inventory\" />
     <Folder Include="APIControllers\Storeowner\statistics\" />
     <Folder Include="APIControllers\Storeowner\staff\" />
     <Folder Include="APIControllers\Storeowner\product\" />
-    <Folder Include="APIControllers\Storeowner\previousReceipts\" />
     <Folder Include="APIControllers\Storeowner\previousBills\" />
-    <Folder Include="APIControllers\Storeowner\importgoods\" />
     <Folder Include="Models\feedback\" />
     <Folder Include="Models\statistic\" />
     <Folder Include="Models\previousBill\" />
-    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>
