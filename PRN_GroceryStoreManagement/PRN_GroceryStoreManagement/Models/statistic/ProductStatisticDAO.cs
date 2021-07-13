@@ -65,6 +65,7 @@ namespace PRN_GroceryStoreManagement.Models.statistic
                         });
                     }    
                 }
+                productStatisticMap.OrderByDescending(p => p.Value.Quantity);
                 connection.Close();
             }
             catch (Exception ex)

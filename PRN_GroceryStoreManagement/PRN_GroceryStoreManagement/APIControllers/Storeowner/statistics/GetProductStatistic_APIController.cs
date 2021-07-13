@@ -49,7 +49,7 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.statistics
 
                 if (resultMap != null)
                 {
-                    resultList = new List<ProductStatisticDTO>(resultMap.Values);
+                    resultList = new List<ProductStatisticDTO>(resultMap.Values.OrderByDescending(p=>p.Quantity));
                 }
                 return new JsonResult(resultList);
             }
