@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace PRN_GroceryStoreManagement.Models.account
 {
-    public class AccountDTO
+    public class AccountDTO 
     {
         public string username { get; set; }
         public string password { get; set; }
@@ -19,5 +19,13 @@ namespace PRN_GroceryStoreManagement.Models.account
             this.name = name;
             this.is_owner = is_owner;
         }
+
+        public AccountDTO(string username, string name, bool is_owner)
+        {
+            this.username = username;
+            this.name = name;
+            this.is_owner = is_owner;
+        }
+
     }
 }

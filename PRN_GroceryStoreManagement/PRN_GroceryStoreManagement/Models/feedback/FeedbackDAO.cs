@@ -32,7 +32,7 @@ namespace PRN_GroceryStoreManagement.Models.feedback
                 command.Parameters.Add("@is_seen", SqlDbType.Bit).Value = false;
                 command.Parameters.Add("@cashiser_username", SqlDbType.NVarChar).Value = cashier_username;
 
-                int? rowAffected = (int?)command.ExecuteScalar();
+                int rowAffected = command.ExecuteNonQuery();
 
                 connection.Close();
                 return rowAffected > 0;

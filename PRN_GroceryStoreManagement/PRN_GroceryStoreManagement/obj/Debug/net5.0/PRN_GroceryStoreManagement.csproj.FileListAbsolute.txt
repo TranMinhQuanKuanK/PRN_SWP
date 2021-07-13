@@ -179,7 +179,6 @@ D:\PRNProject\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\
 D:\PRNProject\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.pdb
 D:\PRNProject\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.genruntimeconfig.cache
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\Sidebar.cshtml.g.cs
-c:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.csproj.AssemblyReference.cache
 c:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.GeneratedMSBuildEditorConfig.editorconfig
 c:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.AssemblyInfoInputs.cache
 c:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.AssemblyInfo.cs
@@ -247,3 +246,4 @@ c:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManage
 c:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.csproj.CopyComplete
 c:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.genruntimeconfig.cache
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\FeedbackList.cshtml.g.cs
+C:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.csproj.AssemblyReference.cache
