@@ -47,8 +47,8 @@ namespace PRN_GroceryStoreManagement.Models.statistic
 
                     if (this.productStatisticMap.ContainsKey(productID))
                     {
-                        quantity += this.productStatisticMap[productID].Quantity;
-                        total += this.productStatisticMap[productID].Total;
+                        this.productStatisticMap[productID].Quantity += quantity;
+                        this.productStatisticMap[productID].Total += total;
                     }
                     else
                         this.productStatisticMap.Add(productID, new ProductStatisticDTO

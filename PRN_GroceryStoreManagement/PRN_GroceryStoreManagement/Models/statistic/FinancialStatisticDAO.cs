@@ -26,12 +26,7 @@ namespace PRN_GroceryStoreManagement.Models.statistic
                 command.Parameters.Add("@date_to", SqlDbType.NVarChar).Value = dateTo;
 
                 connection.Open();
-                SqlDataReader Reader = command.ExecuteReader(CommandBehavior.CloseConnection);
-
-                while (Reader.Read())
-                {
-                    countBill = Reader.GetInt32(0);
-                }
+                countBill = (int)command.ExecuteScalar();
 
                 connection.Close();
                 return countBill;

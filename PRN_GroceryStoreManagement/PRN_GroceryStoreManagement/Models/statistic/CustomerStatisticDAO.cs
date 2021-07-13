@@ -49,8 +49,8 @@ namespace PRN_GroceryStoreManagement.Models.statistic
 
                         if (customerStatisticMap.ContainsKey(reader.GetString(0)))
                         {
-                            quantity += this.customerStatisticMap[phoneNum].Quantity;
-                            total += this.customerStatisticMap[phoneNum].Total;
+                            this.customerStatisticMap[phoneNum].Quantity += quantity;
+                            this.customerStatisticMap[phoneNum].Total += total;
                         }
                         else 
                         this.customerStatisticMap.Add(phoneNum, new CustomerStatisticDTO
