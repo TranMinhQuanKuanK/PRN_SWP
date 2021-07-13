@@ -23,13 +23,18 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.staff
         {
             AccountErrObj accountErr = new AccountErrObj();
             AccountDAO dao = new AccountDAO();
-            string username = HttpContext.Session.GetString("FULLNAME");
+            string username = HttpContext.Session.GetString("USERNAME");
             string currentPassword = JsonObj.GetProperty("currentPassword").GetString();
             string newPassword = JsonObj.GetProperty("newPassword").GetString();
 
             if (username != null)
             {
+                
                 AccountDTO aDTO = dao.checkLogin(username, currentPassword);
+                if (aDTO == null)
+                    Console.WriteLine("null");
+                else
+                    Console.WriteLine(aDTO);
 
                 if (aDTO == null)
                 {
