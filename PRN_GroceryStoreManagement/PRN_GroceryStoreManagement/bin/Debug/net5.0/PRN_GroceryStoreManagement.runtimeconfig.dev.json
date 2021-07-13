@@ -1,9 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\quan6\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\quan6\\.nuget\\packages",
-      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      "C:\\Users\\megap\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\megap\\.nuget\\packages"
     ]
   }
 }

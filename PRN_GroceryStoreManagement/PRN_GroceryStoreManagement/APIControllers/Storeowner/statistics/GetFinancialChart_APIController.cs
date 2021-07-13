@@ -47,13 +47,10 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.statistics
                     dateIterator = dao.nextMonth(dateIterator);
                 }
 
-                int i = 0;
                 foreach (string month in events)
                 {
                     revenue.Add(dao.getSumRevenue(month, dao.nextMonth(month)));
                     profit.Add(dao.sumProfit(month, dao.nextMonth(month)));
-                    events.RemoveAt(i++);
-                    events.Add(StringNormalizer.normalize(month));
                 }
 
                 FinancialChartDataObj result = new FinancialChartDataObj

@@ -10,7 +10,7 @@ namespace PRN_GroceryStoreManagement.Models.statistic
 {
     public class ProductStatisticDAO
     {
-        private Dictionary<int, ProductStatisticDTO> productStatisticMap;
+        private Dictionary<int, ProductStatisticDTO> productStatisticMap = null;
 
         public Dictionary<int, ProductStatisticDTO> getProductStatisticMap() => productStatisticMap;
 
@@ -22,11 +22,16 @@ namespace PRN_GroceryStoreManagement.Models.statistic
                         + "FROM customer_bill_detail "
                         + "JOIN customer_bill ON customer_bill_detail.bill_ID = customer_bill.bill_ID "
                         + "JOIN product ON customer_bill_detail.product_ID = product.product_ID "
-                        + $"WHERE @date_from <= buy_date AND buy_date <= @date_to";
+                        + "WHERE @date_from <= buy_date AND buy_date <= @date_to";
 
             SqlCommand command = new SqlCommand(SQLString, connection);
-            command.Parameters.Add("@date_from", SqlDbType.NVarChar).Value = dateFrom;
-            command.Parameters.Add("@date_to", SqlDbType.NVarChar).Value = dateTo;
+            command.Parameters.Add("@date_from", SqlDbType.NVarChar, 50).Value = dateFrom;
+            command.Parameters.Add("@date_to", SqlDbType.NVarChar, 50).Value = dateTo;
+
+            foreach (SqlParameter t in command.Parameters)
+            {
+                Console.WriteLine(t.Value.ToString());
+            }
             try
             {
 
@@ -40,29 +45,31 @@ namespace PRN_GroceryStoreManagement.Models.statistic
                     int total = Reader.GetInt32(2);
                     string productName = Reader.GetString(3);
 
-                    if (this.productStatisticMap == null)
+                    if (productStatisticMap == null)
                     {
-                        this.productStatisticMap = new Dictionary<int, ProductStatisticDTO>();
+                        productStatisticMap = new Dictionary<int, ProductStatisticDTO>();
                     }
 
-                    if (this.productStatisticMap.ContainsKey(productID))
+                    if (productStatisticMap.ContainsKey(productID))
                     {
-                        this.productStatisticMap[productID].Quantity += quantity;
-                        this.productStatisticMap[productID].Total += total;
+                        productStatisticMap[productID].Quantity += quantity;
+                        productStatisticMap[productID].Total += total;
                     }
                     else
-                        this.productStatisticMap.Add(productID, new ProductStatisticDTO
+                    {
+                        productStatisticMap.Add(productID, new ProductStatisticDTO
                         {
                             ProductName = productName,
                             Quantity = quantity,
                             Total = total
                         });
+                    }    
                 }
-                productStatisticMap.OrderByDescending(p => p.Value);
                 connection.Close();
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.StackTrace);
                 throw new Exception(ex.Message);
             }
         }
