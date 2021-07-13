@@ -1002,23 +1002,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {},
+    "C:\\Users\\quan6\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj",
+      "projectUniqueName": "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj",
       "projectName": "PRN_GroceryStoreManagement",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\obj\\",
+      "projectPath": "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement.csproj",
+      "packagesPath": "C:\\Users\\quan6\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\quan6\\OneDrive\\SGK\\PRN_SWP\\PRN_GroceryStoreManagement\\PRN_GroceryStoreManagement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\quan6\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
