@@ -19,7 +19,6 @@
     <Folder Include="APIControllers\Storeowner\product\" />
     <Folder Include="APIControllers\Storeowner\previousBills\" />
     <Folder Include="Models\feedback\" />
-    <Folder Include="Models\statistic\" />
     <Folder Include="Models\previousBill\" />
   </ItemGroup>
 

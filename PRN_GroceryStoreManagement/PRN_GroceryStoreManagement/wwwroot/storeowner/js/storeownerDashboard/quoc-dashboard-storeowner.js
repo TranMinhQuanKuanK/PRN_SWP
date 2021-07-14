@@ -25,8 +25,8 @@ function showFinancialStatistic() {
     var request = new XMLHttpRequest();
 
     var url = "GetFinancialStatistic";
-    url += "?date-from=" + dateFrom;
-    url += "&date-to=" + dateTo;
+    url += "?date_from=" + dateFrom;
+    url += "&date_to=" + dateTo;
 
     request.open('GET', url, true);
     request.onload = function () {
@@ -46,8 +46,8 @@ function showProductStatistic() {
     var request = new XMLHttpRequest();
 
     var url = "GetProductStatistic";
-    url += "?date-from=" + dateFrom;
-    url += "&date-to=" + dateTo;
+    url += "?date_from=" + dateFrom;
+    url += "&date_to=" + dateTo;
 
     request.open('GET', url, true);
     request.onload = function () {
@@ -85,8 +85,8 @@ function showCustomerStatistic() {
     var request = new XMLHttpRequest();
 
     var url = "GetCustomerStatistic";
-    url += "?date-from=" + dateFrom;
-    url += "&date-to=" + dateTo;
+    url += "?date_from=" + dateFrom;
+    url += "&date_to=" + dateTo;
 
     request.open('GET', url, true);
     request.onload = function () {

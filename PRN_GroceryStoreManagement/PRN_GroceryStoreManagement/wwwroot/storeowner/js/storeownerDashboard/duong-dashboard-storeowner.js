@@ -48,27 +48,30 @@ function renderPendingList(data) {
 
 function changeStatusInPendingList(productID) {
     var xhttp = new XMLHttpRequest();
-    content =
-            "product_ID=" +
-            encodeURIComponent(productID);
+
+    var product_ID = encodeURIComponent(productID);
+    var JSONObject = {
+        product_ID: product_ID,
+    };
     xhttp.open("POST", "UpdateSuggestion", false);
-    xhttp.setRequestHeader(
-            "Content-Type",
-            "application/x-www-form-urlencoded;charset=UTF-8"
-            );
-    xhttp.send(content);
+    xhttp.setRequestHeader('Content-type', 'application/json');
+    xhttp.setRequestHeader('Accept', 'application/json');
+    xhttp.send(JSON.stringify(JSONObject));
     getPendingList();
 }
 
 function addToReceipt(productID) {
     var xhttp = new XMLHttpRequest();
-    content =
-            "product_ID=" +
-            encodeURIComponent(productID);
+    var product_ID = encodeURIComponent(productID);
+    var JSONObject = {
+        product_ID: product_ID,
+    };
     xhttp.open("POST", "AddToReceiptFromPending", false);
-    xhttp.setRequestHeader(
-            "Content-Type",
-            "application/x-www-form-urlencoded;charset=UTF-8"
-            );
-    xhttp.send(content);
+    xhttp.setRequestHeader('Content-type', 'application/json');
+    xhttp.setRequestHeader('Accept', 'application/json');
+    xhttp.send(JSON.stringify(JSONObject));
+    $('#success-to-add-toast').toast({
+        delay: 3000
+    });
+    $('#success-to-add-toast').toast('show');
 }

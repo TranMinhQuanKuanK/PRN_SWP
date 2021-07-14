@@ -179,6 +179,7 @@ D:\PRNProject\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\
 D:\PRNProject\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.pdb
 D:\PRNProject\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.genruntimeconfig.cache
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\Sidebar.cshtml.g.cs
+c:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.csproj.AssemblyReference.cache
 c:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.GeneratedMSBuildEditorConfig.editorconfig
 c:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.AssemblyInfoInputs.cache
 c:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.AssemblyInfo.cs
@@ -246,4 +247,137 @@ c:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManage
 c:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.csproj.CopyComplete
 c:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.genruntimeconfig.cache
 C:\Users\quan6\OneDrive\SGK\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\FeedbackList.cshtml.g.cs
-C:\Users\Admin\Desktop\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.csproj.AssemblyReference.cache
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\web.config
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\appsettings.Development.json
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\appsettings.json
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.exe
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.deps.json
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.runtimeconfig.json
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.runtimeconfig.dev.json
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\ref\PRN_GroceryStoreManagement.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.pdb
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.Views.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.Views.pdb
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Google.Apis.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Google.Apis.Admin.Directory.directory_v1.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Google.Apis.Auth.PlatformServices.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Google.Apis.Auth.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Google.Apis.Core.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Microsoft.OpenApi.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\System.Data.SqlClient.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.csprojAssemblyReference.cache
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.GeneratedMSBuildEditorConfig.editorconfig
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.AssemblyInfoInputs.cache
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.AssemblyInfo.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.csproj.CoreCompileInputs.cache
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.MvcApplicationPartsAssemblyInfo.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.MvcApplicationPartsAssemblyInfo.cache
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.RazorAssemblyInfo.cache
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.RazorAssemblyInfo.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\staticwebassets\PRN_GroceryStoreManagement.StaticWebAssets.Manifest.cache
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\staticwebassets\PRN_GroceryStoreManagement.StaticWebAssets.xml
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\scopedcss\bundle\PRN_GroceryStoreManagement.styles.css
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.TagHelpers.input.cache
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.TagHelpers.output.cache
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.RazorCoreGenerate.cache
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\AddNewProduct.cshtml.g.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\CashierDashboard.cshtml.g.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\FeedbackList.cshtml.g.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\ImportGoods.cshtml.g.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\Inventory.cshtml.g.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\LoginPage.cshtml.g.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\PreviousBills.cshtml.g.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\PreviousReceipts.cshtml.g.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\ProductList.cshtml.g.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\Sidebar.cshtml.g.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\Staff.cshtml.g.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\Statistics.cshtml.g.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\StoreownerDashboard.cshtml.g.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.RazorTargetAssemblyInfo.cache
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.RazorTargetAssemblyInfo.cs
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.Views.pdb
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.csproj.CopyComplete
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\ref\PRN_GroceryStoreManagement.dll
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.pdb
+D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.genruntimeconfig.cache
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\web.config
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\appsettings.json
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.exe
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.deps.json
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.runtimeconfig.json
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.runtimeconfig.dev.json
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\ref\PRN_GroceryStoreManagement.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.pdb
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.Views.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\PRN_GroceryStoreManagement.Views.pdb
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Google.Apis.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Google.Apis.Admin.Directory.directory_v1.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Google.Apis.Auth.PlatformServices.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Google.Apis.Auth.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Google.Apis.Core.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.csproj.AssemblyReference.cache
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.AssemblyInfoInputs.cache
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.AssemblyInfo.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.csproj.CoreCompileInputs.cache
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.RazorAssemblyInfo.cache
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.RazorAssemblyInfo.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\staticwebassets\PRN_GroceryStoreManagement.StaticWebAssets.Manifest.cache
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\staticwebassets\PRN_GroceryStoreManagement.StaticWebAssets.xml
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\scopedcss\bundle\PRN_GroceryStoreManagement.styles.css
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.TagHelpers.input.cache
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.TagHelpers.output.cache
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.RazorCoreGenerate.cache
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\AddNewProduct.cshtml.g.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\CashierDashboard.cshtml.g.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\FeedbackList.cshtml.g.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\ImportGoods.cshtml.g.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\Inventory.cshtml.g.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\LoginPage.cshtml.g.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\PreviousBills.cshtml.g.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\PreviousReceipts.cshtml.g.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\ProductList.cshtml.g.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\Sidebar.cshtml.g.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\Staff.cshtml.g.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\Statistics.cshtml.g.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\Razor\Views\Shared\StoreownerDashboard.cshtml.g.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.RazorTargetAssemblyInfo.cache
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.RazorTargetAssemblyInfo.cs
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.Views.pdb
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.csproj.CopyComplete
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\ref\PRN_GroceryStoreManagement.dll
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.pdb
+C:\Users\megap\OneDrive\Desktop\Official Code\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.genruntimeconfig.cache
