@@ -18,42 +18,51 @@ namespace PRN_GroceryStoreManagement.APIControllers.Cashier
         [HttpPost]
         public IActionResult ChangePasswordCashier([FromBody] JsonElement JsonObj)
         {
-            String currentPassword = JsonObj.GetProperty("currentPassword").GetString();
-            String newPassword = JsonObj.GetProperty("newPassword").GetString();
-            String username = HttpContext.Session.GetString("USERNAME");
-            AccountErrObj accError = new AccountErrObj();
-            if (username != null)
+            try
             {
-                AccountDAO aDAO = new AccountDAO();
-                AccountDTO aDTO = aDAO.checkLogin(username, currentPassword);
-                if (aDTO == null)
-                {
-                    //thông báo mật khẩu không đúng
-                    accError.currentPasswordError = "Mật khẩu hiện tại không đúng";
-                    accError.hasError = true;
 
-                }
-                else
+                String currentPassword = JsonObj.GetProperty("currentPassword").GetString();
+                String newPassword = JsonObj.GetProperty("newPassword").GetString();
+                String username = HttpContext.Session.GetString("USERNAME");
+                AccountErrObj accError = new AccountErrObj();
+                if (username != null)
                 {
-                    //kiểm tra password mới 6 kí tự 
-                    if (newPassword.Length < 6)
+                    AccountDAO aDAO = new AccountDAO();
+                    AccountDTO aDTO = aDAO.checkLogin(username, currentPassword);
+                    if (aDTO == null)
                     {
-                        accError.newPasswordError = "Mật khẩu mới phải từ 6 kí tự trở lên";
+                        //thông báo mật khẩu không đúng
+                        accError.currentPasswordError = "Mật khẩu hiện tại không đúng";
                         accError.hasError = true;
-                    }
-                    else if (newPassword == currentPassword)
-                    {
-                        accError.newPasswordError = "Mật khẩu mới phải khác mật khẩu cũ";
-                        accError.hasError = true;
+
                     }
                     else
                     {
-                        aDAO.ChangePassword(username, newPassword);
+                        //kiểm tra password mới 6 kí tự 
+                        if (newPassword.Length < 6)
+                        {
+                            accError.newPasswordError = "Mật khẩu mới phải từ 6 kí tự trở lên";
+                            accError.hasError = true;
+                        }
+                        else if (newPassword == currentPassword)
+                        {
+                            accError.newPasswordError = "Mật khẩu mới phải khác mật khẩu cũ";
+                            accError.hasError = true;
+                        }
+                        else
+                        {
+                            aDAO.ChangePassword(username, newPassword);
+                        }
                     }
-                }
 
+                }
+                return new JsonResult(accError);
             }
-            return new JsonResult(accError);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return new JsonResult(null);
         }
     }
 }

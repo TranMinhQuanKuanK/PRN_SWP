@@ -23,11 +23,10 @@ namespace PRN_GroceryStoreManagement.APIControllers.Common
         public IActionResult AddProductToBill(int product_id)
         {
             //add comment 
+            BillObj bill = null;
+            String BillJSONString = HttpContext.Session.GetString("BILL");
             try
             {
-                BillObj bill = null;
-                String BillJSONString = HttpContext.Session.GetString("BILL");
-
                 ProductDTO pDTO = new ProductDAO().GetProductByID(product_id);
                 if (BillJSONString == null)
                 {
@@ -102,7 +101,7 @@ namespace PRN_GroceryStoreManagement.APIControllers.Common
             {
                 Console.WriteLine(ex.Message);
             }
-
+            return new JsonResult(bill);
 
         }
     }

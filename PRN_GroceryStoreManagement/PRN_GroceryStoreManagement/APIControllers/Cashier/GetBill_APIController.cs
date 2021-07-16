@@ -17,23 +17,31 @@ namespace PRN_GroceryStoreManagement.APIControllers.Common
     [ApiController]
     public class GetBill_APIController : ControllerBase
     {
-        
+
         [HttpGet]
         public IActionResult GetBill()
         {
-         
             BillObj bill = null;
             String BillJSONString = HttpContext.Session.GetString("BILL");
-            if (BillJSONString == null)
+            try
             {
-                bill = new BillObj();
-                HttpContext.Session.SetString("BILL", JsonConvert.SerializeObject(bill));
-            } else
-            {
-                bill = JsonConvert.DeserializeObject<BillObj>(BillJSONString);
-                bill.err_obj = new BillErrObj();
+                if (BillJSONString == null)
+                {
+                    bill = new BillObj();
+                    HttpContext.Session.SetString("BILL", JsonConvert.SerializeObject(bill));
+                }
+                else
+                {
+                    bill = JsonConvert.DeserializeObject<BillObj>(BillJSONString);
+                    bill.err_obj = new BillErrObj();
+                }
+
+                return new JsonResult(bill);
             }
-           
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             return new JsonResult(bill);
         }
     }

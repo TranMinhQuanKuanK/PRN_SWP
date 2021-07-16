@@ -69,6 +69,7 @@ function processAllFeedback(data){
         cell2.innerHTML = temp_datetime;
         cell2.style.textAlign = "left";
         cell3.innerHTML = data[i].feedback_content;
+        cell3.style.maxWidth = "100%";
         cell3.style.textAlign = "left";
         cell4.innerHTML = data[i].account.name;
         cell5.innerHTML = '<a class="btn-mark-as-read" onclick="GetAllFeedbackListFromButton(this)" data-feedbackID='+ data[i].feedback_ID +'><i class="fas fa-check-circle"></i></a>'

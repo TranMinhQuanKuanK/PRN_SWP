@@ -24,7 +24,9 @@ namespace PRN_GroceryStoreManagement.APIControllers.Common
         [HttpGet]
         public IActionResult GetCustomerByPhone(string phone_no)
         {
-            CustomerDTO cDTO = new CustomerDAO().GetCustomerByPhone(phone_no);
+            try
+            {
+                CustomerDTO cDTO = new CustomerDAO().GetCustomerByPhone(phone_no);
             
             //get bill from session
             BillObj bill = null;
@@ -47,6 +49,12 @@ namespace PRN_GroceryStoreManagement.APIControllers.Common
                 HttpContext.Session.SetString("BILL", JsonConvert.SerializeObject(bill));
             }
             return new JsonResult(cDTO);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return new JsonResult(null);
         }
     }
 }
