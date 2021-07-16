@@ -118,9 +118,9 @@ function createHTMLForEachProduct(product) {
 function sendFeedback() {
   var xhttp = new XMLHttpRequest();
 
-  var feedback_content = encodeURIComponent(
+  var feedback_content =
     document.getElementById("feedback").value
-  );
+  ;
   var JSONObject = {
     feedback_content: feedback_content,
   };

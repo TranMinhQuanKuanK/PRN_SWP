@@ -18,84 +18,92 @@ namespace PRN_GroceryStoreManagement.APIControllers.Common
     [ApiController]
     public class AddProductToBill_APIController : ControllerBase
     {
-        
+
         [HttpGet]
         public IActionResult AddProductToBill(int product_id)
         {
             //add comment 
-            BillObj bill = null;
-            String BillJSONString = HttpContext.Session.GetString("BILL");
-
-            ProductDTO pDTO = new ProductDAO().GetProductByID(product_id);
-            if (BillJSONString == null)
+            try
             {
-                bill = new BillObj();
-                HttpContext.Session.SetString("BILL", JsonConvert.SerializeObject(bill));
-            }
-            else
-            {
-                bill = JsonConvert.DeserializeObject<BillObj>(BillJSONString);
-               // bill.err_obj = new BillErrObj();
+                BillObj bill = null;
+                String BillJSONString = HttpContext.Session.GetString("BILL");
 
-                //java code
-                List<BillItemObject> details = bill.Bill_Detail;
-
-                //Tìm trong bill trên session xem sản phẩm đó đã có chưa
-                bool found = false;
-                int found_index = -1;
-                for (int i = 0; i < details.Count; i++)
+                ProductDTO pDTO = new ProductDAO().GetProductByID(product_id);
+                if (BillJSONString == null)
                 {
-                    if (details[i].product.product_ID == product_id)
-                    {
-                        found = true;
-                        found_index = i;
-                        //details.get(i).setQuantity(details.get(i).getQuantity() + 1);
-                    }
-                }
-                //Nếu tồn tại trong detail thì xét số lượng, nếu lớn hơn số lượng dưới db thì lỗi
-                if (found)
-                {
-                    int currentQuantityOnBill = details[found_index].quantity;
-                    if ((currentQuantityOnBill + 1) <= pDTO.quantity)
-                    {
-                        details[found_index].quantity = currentQuantityOnBill + 1;
-                        bill.total_cost = bill.total_cost + pDTO.selling_price;
-                        //set lại error lỗi là không có lỗi;
-                        bill.err_obj = new BillErrObj(); //xem thử có nên xóa hay ko
-                    }
-                    else
-                    {
-                        //Set lỗi
-                        BillErrObj bill_error = new BillErrObj();
-                        bill_error.appendError("\"" + pDTO.name + "\" chỉ còn " + pDTO.quantity + " sản phẩm trong kho");
-                        bill.err_obj = bill_error;
-                    };
+                    bill = new BillObj();
+                    HttpContext.Session.SetString("BILL", JsonConvert.SerializeObject(bill));
                 }
                 else
                 {
-                    if (pDTO.quantity > 0)
+                    bill = JsonConvert.DeserializeObject<BillObj>(BillJSONString);
+                    // bill.err_obj = new BillErrObj();
+
+                    //java code
+                    List<BillItemObject> details = bill.Bill_Detail;
+
+                    //Tìm trong bill trên session xem sản phẩm đó đã có chưa
+                    bool found = false;
+                    int found_index = -1;
+                    for (int i = 0; i < details.Count; i++)
                     {
-                        BillItemObject billItem = new BillItemObject(pDTO, 1);
-                        bill.Bill_Detail.Add(billItem);
-                        bill.total_cost = bill.total_cost + pDTO.selling_price;
-                        //làm trống lỗi
-                        bill.err_obj = new BillErrObj(); //xem thử có nên xóa hay ko
+                        if (details[i].product.product_ID == product_id)
+                        {
+                            found = true;
+                            found_index = i;
+                            //details.get(i).setQuantity(details.get(i).getQuantity() + 1);
+                        }
+                    }
+                    //Nếu tồn tại trong detail thì xét số lượng, nếu lớn hơn số lượng dưới db thì lỗi
+                    if (found)
+                    {
+                        int currentQuantityOnBill = details[found_index].quantity;
+                        if ((currentQuantityOnBill + 1) <= pDTO.quantity)
+                        {
+                            details[found_index].quantity = currentQuantityOnBill + 1;
+                            bill.total_cost = bill.total_cost + pDTO.selling_price;
+                            //set lại error lỗi là không có lỗi;
+                            bill.err_obj = new BillErrObj(); //xem thử có nên xóa hay ko
+                        }
+                        else
+                        {
+                            //Set lỗi
+                            BillErrObj bill_error = new BillErrObj();
+                            bill_error.appendError("\"" + pDTO.name + "\" chỉ còn " + pDTO.quantity + " sản phẩm trong kho");
+                            bill.err_obj = bill_error;
+                        };
                     }
                     else
                     {
-                        //Set lỗi
-                        BillErrObj bill_error = new BillErrObj();
-                        bill_error.appendError("\"" + pDTO.name  + "\" chỉ còn " + pDTO.quantity + " sản phẩm trong kho");
-                        bill.err_obj = bill_error; //xem thử có nên xóa hay ko
-                    };
-                }
+                        if (pDTO.quantity > 0)
+                        {
+                            BillItemObject billItem = new BillItemObject(pDTO, 1);
+                            bill.Bill_Detail.Add(billItem);
+                            bill.total_cost = bill.total_cost + pDTO.selling_price;
+                            //làm trống lỗi
+                            bill.err_obj = new BillErrObj(); //xem thử có nên xóa hay ko
+                        }
+                        else
+                        {
+                            //Set lỗi
+                            BillErrObj bill_error = new BillErrObj();
+                            bill_error.appendError("\"" + pDTO.name + "\" chỉ còn " + pDTO.quantity + " sản phẩm trong kho");
+                            bill.err_obj = bill_error; //xem thử có nên xóa hay ko
+                        };
+                    }
 
-                HttpContext.Session.SetString("BILL", JsonConvert.SerializeObject(bill));
+                    HttpContext.Session.SetString("BILL", JsonConvert.SerializeObject(bill));
+
+                }
+                return new JsonResult(bill);
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
 
 
-
-            return new JsonResult(bill);
         }
     }
 }
