@@ -79,7 +79,7 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.previousBill
                 {
                     resultList.Sort(delegate(PreBillDTO x, PreBillDTO y)
                     {
-                        return DateTime.Parse(x.buyDate).CompareTo(DateTime.Parse(y.buyDate));
+                        return DateTime.ParseExact(x.buyDate, "dd/MM/yyyy HH:mm:ss", null).CompareTo(DateTime.ParseExact(y.buyDate, "dd/MM/yyyy HH:mm:ss", null));
                     });
                     resultList.Reverse();
                 }
