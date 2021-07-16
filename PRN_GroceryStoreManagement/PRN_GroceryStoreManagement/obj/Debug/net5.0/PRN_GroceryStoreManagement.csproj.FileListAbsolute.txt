@@ -211,7 +211,6 @@ D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\D
 D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
 D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.csprojAssemblyReference.cache
 D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.GeneratedMSBuildEditorConfig.editorconfig
 D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.AssemblyInfoInputs.cache
 D:\PRNGithub\PRN_SWP\PRN_GroceryStoreManagement\PRN_GroceryStoreManagement\obj\Debug\net5.0\PRN_GroceryStoreManagement.AssemblyInfo.cs
