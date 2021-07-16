@@ -1,12 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using PRN_GroceryStoreManagement.Utils;
+﻿using PRN_GroceryStoreManagement.Utils;
 using System;
 using System.Collections.Generic;
-using System.Data;//tự thêm
-using System.Data.SqlClient;//cài thêm
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace PRN_GroceryStoreManagement.Models.account
 {

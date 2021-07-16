@@ -1,13 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
 using PRN_GroceryStoreManagement.Utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using PRN_GroceryStoreManagement.Models.feedback;
 using PRN_GroceryStoreManagement.Models.account;
 
 namespace PRN_GroceryStoreManagement.Models.feedback
@@ -84,7 +79,6 @@ namespace PRN_GroceryStoreManagement.Models.feedback
                 }
                 else
                 {
-                    connection.Close();
                     return null;
                 }
             }
@@ -137,7 +131,6 @@ namespace PRN_GroceryStoreManagement.Models.feedback
                 }
                 else
                 {
-                    connection.Close();
                     return null;
                 }
             }
