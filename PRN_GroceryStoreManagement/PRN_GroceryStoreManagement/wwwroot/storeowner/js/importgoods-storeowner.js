@@ -159,25 +159,42 @@ function renderReceiptDetail() {
     }
 }
 
-function updateQuantityItem(productID) {
-    var tempQuantity = document.getElementById("quantityOf" + productID).value;
-    var xhttp = new XMLHttpRequest();
-    xhttp.onload = function () {
-        console.log(this.responseText);
-        receiptOnSession = JSON.parse(this.responseText);
-    };
+//$('input').keyup(function () {
+//    var $th = $(this);
+//    var onlyNumbers = $th.val().replace(/[^0-9]/g, function (str) { return ''; });
+//    var intValue = parseInt(onlyNumbers);
+//    if (intValue) {
+//        $th.val(intValue);
+//    } else {
+//        $th.val(0);
+//    }
 
-    var product_id = encodeURIComponent(productID);
-    var quantity = encodeURIComponent(tempQuantity);
-    var JSONObject = {
-        product_id: product_id,
-        quantity: quantity
-    };
-    xhttp.open("POST", "EditQuantityInReceipt", false);
-    xhttp.setRequestHeader('Content-type', 'application/json');
-    xhttp.setRequestHeader('Accept', 'application/json');
-    xhttp.send(JSON.stringify(JSONObject));
-    renderReceiptDetail();
+//});
+
+
+function updateQuantityItem(productID) {
+    
+        var tempQuantity = document.getElementById("quantityOf" + productID).value;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onload = function () {
+            console.log(this.responseText);
+            receiptOnSession = JSON.parse(this.responseText);
+        };
+
+        var product_id = encodeURIComponent(productID);
+        var quantity = encodeURIComponent(tempQuantity);
+        if (quantity !== null && quantity > 0) {
+            var JSONObject = {
+                product_id: product_id,
+                quantity: quantity
+            };
+            xhttp.open("POST", "EditQuantityInReceipt", false);
+            xhttp.setRequestHeader('Content-type', 'application/json');
+            xhttp.setRequestHeader('Accept', 'application/json');
+            xhttp.send(JSON.stringify(JSONObject));
+            renderReceiptDetail();
+        }
+    
 }
 
 function removeFromReceipt(productID) {

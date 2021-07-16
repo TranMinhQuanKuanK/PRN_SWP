@@ -238,29 +238,31 @@ function updateQuantity() {
     var xhttp = new XMLHttpRequest();
     var productID = document.getElementById("hiddenProductID").value;
     var newquantity = document.getElementById("product-newquantity").value;
-    for (i = 0; i < productObject.length; i++) {
-        if (productObject[i].product_ID == productID) {
-            tempThreshold = productObject[i].lower_threshold;
-            break;
+    if (newquantity !== null && newquantity>=0) {
+        for (i = 0; i < productObject.length; i++) {
+            if (productObject[i].product_ID == productID) {
+                tempThreshold = productObject[i].lower_threshold;
+                break;
+            }
         }
+        if (tempThreshold >= newquantity) {
+            addToPendingListAuto(productID);
+        } else {
+            changeStatusInPendingListIfHas(productID);
+        }
+        var product_ID = encodeURIComponent(productID);
+        var new_quantity = encodeURIComponent(newquantity);
+        var JSONObject = {
+            product_ID: product_ID,
+            new_quantity: new_quantity
+        };
+        xhttp.open("POST", "UpdateQuantity", false);
+        xhttp.setRequestHeader('Content-type', 'application/json');
+        xhttp.setRequestHeader('Accept', 'application/json');
+        xhttp.send(JSON.stringify(JSONObject));
+        document.getElementById("product-newquantity").value = "";
+        $("#editModal").modal("hide");
+        getPendingList();
+        getProduct();
     }
-    if (tempThreshold >= newquantity) {
-        addToPendingListAuto(productID);
-    } else {
-        changeStatusInPendingListIfHas(productID);
-    }
-    var product_ID = encodeURIComponent(productID);
-    var new_quantity = encodeURIComponent(newquantity);
-    var JSONObject = {
-        product_ID: product_ID,
-        new_quantity: new_quantity
-    };
-    xhttp.open("POST", "UpdateQuantity", false);
-    xhttp.setRequestHeader('Content-type', 'application/json');
-    xhttp.setRequestHeader('Accept', 'application/json');
-    xhttp.send(JSON.stringify(JSONObject));
-    document.getElementById("product-newquantity").value = "";
-    $("#editModal").modal("hide");
-    getPendingList();
-    getProduct();
 }
