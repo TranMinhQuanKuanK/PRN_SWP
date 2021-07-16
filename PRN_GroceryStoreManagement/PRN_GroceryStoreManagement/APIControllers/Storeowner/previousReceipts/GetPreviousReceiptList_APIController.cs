@@ -18,20 +18,28 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.previousReceipts
         [HttpGet]
         public IActionResult GetPreviousReceiptList(string? date_from, string? date_to)
         {
-            string? dateFrom = date_from;
-            string? dateTo = date_to;
-            if (dateFrom.Length == 10)
+            try
             {
-                dateFrom += " 00:00:00";
-            }
-            if (dateTo.Length == 10)
+                string? dateFrom = date_from;
+                string? dateTo = date_to;
+                if (dateFrom.Length == 10)
+                {
+                    dateFrom += " 00:00:00";
+                }
+                if (dateTo.Length == 10)
+                {
+                    dateTo += " 23:59:59";
+                }
+                PreviousReceiptDAO DAO = new PreviousReceiptDAO();
+                List<PreviousReceiptDTO> receiptList = DAO.GetPreviousReceipt(dateFrom, dateTo);
+                return new JsonResult(receiptList);
+            } 
+            catch (Exception ex)
             {
-                dateTo += " 23:59:59";
+                Console.WriteLine(ex.Message);
             }
-            PreviousReceiptDAO DAO = new PreviousReceiptDAO();
-            List<PreviousReceiptDTO> receiptList = DAO.GetPreviousReceipt(dateFrom, dateTo);
-            return new JsonResult(receiptList);
-        }
+            return new JsonResult(null);
+}
         
     }
 }

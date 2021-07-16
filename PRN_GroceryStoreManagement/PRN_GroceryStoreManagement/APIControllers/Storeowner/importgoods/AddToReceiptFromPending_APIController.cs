@@ -20,41 +20,49 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.importgoods
         [HttpPost]
         public IActionResult AddToReceiptFromPending([FromBody] JsonElement JsonObj)
         {
-            ReceiptObj receipt = null;
-            String ReceiptJSONString = HttpContext.Session.GetString("RECEIPT");
-            int productID = int.Parse(JsonObj.GetProperty("product_ID").GetString());
-            ProductDTO pDTO = new ProductDAO().GetProductByID(productID);
-            if (ReceiptJSONString == null)
+            try
             {
-                receipt = new ReceiptObj();
-                HttpContext.Session.SetString("RECEIPT", JsonConvert.SerializeObject(receipt));
-            }
-            else
-            {
-                receipt = JsonConvert.DeserializeObject<ReceiptObj>(ReceiptJSONString);
-                List<ReceiptItem> receipt_detail = receipt.receipt_detail;
-                //ktra san pham da ton tai tren session chua
-                bool found = false;
-                for (int i = 0; i < receipt_detail.Count; i++)
+                ReceiptObj receipt = null;
+                String ReceiptJSONString = HttpContext.Session.GetString("RECEIPT");
+                int productID = int.Parse(JsonObj.GetProperty("product_ID").GetString());
+                ProductDTO pDTO = new ProductDAO().GetProductByID(productID);
+                if (ReceiptJSONString == null)
                 {
-                    if (receipt_detail[i].product.product_ID == productID)
+                    receipt = new ReceiptObj();
+                    HttpContext.Session.SetString("RECEIPT", JsonConvert.SerializeObject(receipt));
+                }
+                else
+                {
+                    receipt = JsonConvert.DeserializeObject<ReceiptObj>(ReceiptJSONString);
+                    List<ReceiptItem> receipt_detail = receipt.receipt_detail;
+                    //ktra san pham da ton tai tren session chua
+                    bool found = false;
+                    for (int i = 0; i < receipt_detail.Count; i++)
                     {
-                        found = true;
-                        break;
+                        if (receipt_detail[i].product.product_ID == productID)
+                        {
+                            found = true;
+                            break;
+                        }
                     }
+                    //Neu chua ton tai thi them vao session
+                    if (!found)
+                    {
+                        ReceiptItem receiptItem = new ReceiptItem(pDTO, 1);
+                        receipt.receipt_detail.Add(receiptItem);
+                        receipt.total_cost = receipt.total_cost + pDTO.selling_price;
+                    }
+                    HttpContext.Session.SetString("RECEIPT", JsonConvert.SerializeObject(receipt));
                 }
-                //Neu chua ton tai thi them vao session
-                if (!found)
-                {
-                    ReceiptItem receiptItem = new ReceiptItem(pDTO, 1);
-                    receipt.receipt_detail.Add(receiptItem);
-                    receipt.total_cost = receipt.total_cost + pDTO.selling_price;
-                }
-                HttpContext.Session.SetString("RECEIPT", JsonConvert.SerializeObject(receipt));
+                return new JsonResult(receipt);
             }
-            return new JsonResult(receipt);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return new JsonResult(null);
         }
     }
 }
-           
-        
+
+

@@ -17,51 +17,60 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.statistics
         [HttpGet]
         public IActionResult GetFinancialChart(string date_from, string date_to)
         {
-            StatisticErrorObj errors = new StatisticErrorObj();
-
-            //1. Check error
-            if (date_from.CompareTo(date_to) > 0)
+            try
             {
-                errors.IsError = true;
-                errors.dateError = "Ngày kết thúc phải lớn hơn ngày bắt đầu";
-            }
+                StatisticErrorObj errors = new StatisticErrorObj();
 
-            if (errors.IsError)
-            {
-                //2.1 Caching errors, return error object
-                return new JsonResult(errors);
-            }
-            else
-            {
-                //2.2 Call DAO
-                FinancialStatisticDAO dao = new FinancialStatisticDAO();
-
-                List<string> events = new List<string>();
-                List<int> revenue = new List<int>();
-                List<int> profit = new List<int>();
-
-                string dateIterator = date_from;
-                while (dateIterator.CompareTo(date_to) <= 0)
+                //1. Check error
+                if (date_from.CompareTo(date_to) > 0)
                 {
-                    events.Add(dateIterator);
-                    dateIterator = dao.nextMonth(dateIterator);
+                    errors.IsError = true;
+                    errors.dateError = "Ngày kết thúc phải lớn hơn ngày bắt đầu";
                 }
 
-                foreach (string month in events)
+                if (errors.IsError)
                 {
-                    revenue.Add(dao.getSumRevenue(month, dao.nextMonth(month)));
-                    profit.Add(dao.sumProfit(month, dao.nextMonth(month)));
+                    //2.1 Caching errors, return error object
+                    return new JsonResult(errors);
                 }
-
-                FinancialChartDataObj result = new FinancialChartDataObj
+                else
                 {
-                    Event = events,
-                    Profit = profit,
-                    Revenue = revenue
-                };
+                    //2.2 Call DAO
+                    FinancialStatisticDAO dao = new FinancialStatisticDAO();
 
-                return new JsonResult(result);
+                    List<string> events = new List<string>();
+                    List<int> revenue = new List<int>();
+                    List<int> profit = new List<int>();
+
+                    string dateIterator = date_from;
+                    while (dateIterator.CompareTo(date_to) <= 0)
+                    {
+                        events.Add(dateIterator);
+                        dateIterator = dao.nextMonth(dateIterator);
+                    }
+
+                    foreach (string month in events)
+                    {
+                        revenue.Add(dao.getSumRevenue(month, dao.nextMonth(month)));
+                        profit.Add(dao.sumProfit(month, dao.nextMonth(month)));
+                    }
+
+                    FinancialChartDataObj result = new FinancialChartDataObj
+                    {
+                        Event = events,
+                        Profit = profit,
+                        Revenue = revenue
+                    };
+
+                    return new JsonResult(result);
+                }
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return new JsonResult(null);
         }
     }
 }
+

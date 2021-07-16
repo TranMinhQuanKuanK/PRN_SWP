@@ -125,7 +125,9 @@ function renderReceiptDetail() {
         input_quantity.style.width = "80%";
         input_quantity.setAttribute("class", "text-right float-right");
         input_quantity.setAttribute("id", "quantityOf" + receiptItems[i].product.product_ID);
-        input_quantity.setAttribute("type", "number");
+        input_quantity.setAttribute("type", "text");
+        input_quantity.setAttribute("maxlength", "4");
+        input_quantity.setAttribute("pattern", "\\d*");
         input_quantity.setAttribute("value", receiptItems[i].quantity);
         input_quantity.setAttribute("min", "1");
         input_quantity.setAttribute("onchange", "updateQuantityItem(" + receiptItems[i].product.product_ID + ")");
@@ -173,28 +175,27 @@ function renderReceiptDetail() {
 
 
 function updateQuantityItem(productID) {
-    
-        var tempQuantity = document.getElementById("quantityOf" + productID).value;
-        var xhttp = new XMLHttpRequest();
-        xhttp.onload = function () {
-            console.log(this.responseText);
-            receiptOnSession = JSON.parse(this.responseText);
-        };
 
-        var product_id = encodeURIComponent(productID);
-        var quantity = encodeURIComponent(tempQuantity);
-        if (quantity !== null && quantity > 0) {
-            var JSONObject = {
-                product_id: product_id,
-                quantity: quantity
-            };
-            xhttp.open("POST", "EditQuantityInReceipt", false);
-            xhttp.setRequestHeader('Content-type', 'application/json');
-            xhttp.setRequestHeader('Accept', 'application/json');
-            xhttp.send(JSON.stringify(JSONObject));
-            renderReceiptDetail();
-        }
-    
+    var tempQuantity = document.getElementById("quantityOf" + productID).value;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+        console.log(this.responseText);
+        receiptOnSession = JSON.parse(this.responseText);
+    };
+
+    var product_id = encodeURIComponent(productID);
+    var quantity = encodeURIComponent(tempQuantity);
+    if (quantity !== null && quantity > 0) {
+        var JSONObject = {
+            product_id: product_id,
+            quantity: quantity
+        };
+        xhttp.open("POST", "EditQuantityInReceipt", false);
+        xhttp.setRequestHeader('Content-type', 'application/json');
+        xhttp.setRequestHeader('Accept', 'application/json');
+        xhttp.send(JSON.stringify(JSONObject));
+    }
+    renderReceiptDetail();
 }
 
 function removeFromReceipt(productID) {

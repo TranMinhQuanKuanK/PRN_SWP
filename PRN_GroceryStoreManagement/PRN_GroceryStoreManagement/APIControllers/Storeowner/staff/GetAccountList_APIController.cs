@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PRN_GroceryStoreManagement.Models.account;
+using System;
 using System.Collections.Generic;
 
 namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.staff
@@ -13,18 +14,26 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.staff
         [HttpGet]
         public IActionResult GetAccountList()
         {
-            AccountDAO dao = new AccountDAO();
-            dao.fetchAccountList();
-            List<AccountDTO> resultList = dao.getAccountList();
-
-            // already implement method Compare in AccountDTO
-            resultList.Sort(delegate(AccountDTO x, AccountDTO y)
+            try
             {
-                return x.is_owner.CompareTo(y.is_owner);
-            });
-            resultList.Reverse();
+                AccountDAO dao = new AccountDAO();
+                dao.fetchAccountList();
+                List<AccountDTO> resultList = dao.getAccountList();
 
-            return new JsonResult(resultList);
-        }
+                // already implement method Compare in AccountDTO
+                resultList.Sort(delegate (AccountDTO x, AccountDTO y)
+                {
+                    return x.is_owner.CompareTo(y.is_owner);
+                });
+                resultList.Reverse();
+
+                return new JsonResult(resultList);
+            }   
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return new JsonResult(null);
+}
     }
 }

@@ -20,30 +20,38 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.importgoods
         [HttpPost]
         public IActionResult RemoveFromReceipt([FromBody] JsonElement JsonObj)
         {
-            ReceiptObj receipt = null;
-            String ReceiptJSONString = HttpContext.Session.GetString("RECEIPT");
-            int productID = int.Parse(JsonObj.GetProperty("product_ID").GetString());
-            receipt = JsonConvert.DeserializeObject<ReceiptObj>(ReceiptJSONString);
-            List<ReceiptItem> details = receipt.receipt_detail;
-            int result = -1;
-            for (int i = 0; i < details.Count; i++)
+            try
             {
-                if (details[i].product.product_ID == productID)
+                ReceiptObj receipt = null;
+                String ReceiptJSONString = HttpContext.Session.GetString("RECEIPT");
+                int productID = int.Parse(JsonObj.GetProperty("product_ID").GetString());
+                receipt = JsonConvert.DeserializeObject<ReceiptObj>(ReceiptJSONString);
+                List<ReceiptItem> details = receipt.receipt_detail;
+                int result = -1;
+                for (int i = 0; i < details.Count; i++)
                 {
-                    result = i;
+                    if (details[i].product.product_ID == productID)
+                    {
+                        result = i;
+                    }
                 }
+                if (result >= 0)
+                {
+                    ReceiptItem selected_for_remove_Product = details[result];
+                    int price_lost = selected_for_remove_Product.product.selling_price
+                            * selected_for_remove_Product.quantity;
+                    details.RemoveAt(result);
+                    receipt.total_cost = receipt.total_cost - price_lost;
+                    receipt.receipt_detail = details;
+                    HttpContext.Session.SetString("RECEIPT", JsonConvert.SerializeObject(receipt));
+                }
+                return new JsonResult(receipt);
             }
-            if (result >= 0)
+            catch (Exception ex)
             {
-                ReceiptItem selected_for_remove_Product = details[result];
-                int price_lost = selected_for_remove_Product.product.selling_price
-                        * selected_for_remove_Product.quantity;
-                details.RemoveAt(result);
-                receipt.total_cost = receipt.total_cost - price_lost;
-                receipt.receipt_detail = details;
-                HttpContext.Session.SetString("RECEIPT", JsonConvert.SerializeObject(receipt));
+                Console.WriteLine(ex.Message);
             }
-            return new JsonResult(receipt);
+            return new JsonResult(null);
         }
     }
 }

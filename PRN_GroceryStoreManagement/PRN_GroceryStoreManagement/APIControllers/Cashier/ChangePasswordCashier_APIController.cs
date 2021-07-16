@@ -20,7 +20,6 @@ namespace PRN_GroceryStoreManagement.APIControllers.Cashier
         {
             try
             {
-
                 String currentPassword = JsonObj.GetProperty("currentPassword").GetString();
                 String newPassword = JsonObj.GetProperty("newPassword").GetString();
                 String username = HttpContext.Session.GetString("USERNAME");

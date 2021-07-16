@@ -18,14 +18,22 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.inventory
         [HttpPost]
         public IActionResult UpdateSuggestion([FromBody] JsonElement JsonObj)
         {
-            int productID = int.Parse(JsonObj.GetProperty("product_ID").GetString());
-            PendingItemDAO DAO = new PendingItemDAO();
-            bool isExisted = DAO.IsExistedInPendingList(productID);
-            if (isExisted)
+            try
             {
-                DAO.UpdatePendingList(productID);
+                int productID = int.Parse(JsonObj.GetProperty("product_ID").GetString());
+                PendingItemDAO DAO = new PendingItemDAO();
+                bool isExisted = DAO.IsExistedInPendingList(productID);
+                if (isExisted)
+                {
+                    DAO.UpdatePendingList(productID);
+                }
+                return new JsonResult(value: null);
             }
-            return new JsonResult(value: null);
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return new JsonResult(null);
         }
     }
 }

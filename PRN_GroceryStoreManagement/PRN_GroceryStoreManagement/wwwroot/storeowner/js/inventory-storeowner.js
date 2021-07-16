@@ -1,4 +1,4 @@
-window.onload = function () {
+﻿window.onload = function () {
     var xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
             console.log(this.responseText);
@@ -238,7 +238,7 @@ function updateQuantity() {
     var xhttp = new XMLHttpRequest();
     var productID = document.getElementById("hiddenProductID").value;
     var newquantity = document.getElementById("product-newquantity").value;
-    if (newquantity !== null && newquantity>=0) {
+    if (newquantity != "" && newquantity >= 0) {
         for (i = 0; i < productObject.length; i++) {
             if (productObject[i].product_ID == productID) {
                 tempThreshold = productObject[i].lower_threshold;
@@ -264,5 +264,7 @@ function updateQuantity() {
         $("#editModal").modal("hide");
         getPendingList();
         getProduct();
+    } else {
+        alert("Hãy điền số lượng phù hợp");
     }
 }

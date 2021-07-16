@@ -21,21 +21,27 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.importgoods
         [HttpGet]
         public IActionResult GetReceipt()
         {
-
-            ReceiptObj receipt = null;
-            String ReceiptJSONString = HttpContext.Session.GetString("RECEIPT");
-            if (ReceiptJSONString == null)
+            try
             {
-                receipt = new ReceiptObj();
-                HttpContext.Session.SetString("RECEIPT", JsonConvert.SerializeObject(receipt));
+                ReceiptObj receipt = null;
+                String ReceiptJSONString = HttpContext.Session.GetString("RECEIPT");
+                if (ReceiptJSONString == null)
+                {
+                    receipt = new ReceiptObj();
+                    HttpContext.Session.SetString("RECEIPT", JsonConvert.SerializeObject(receipt));
+                }
+                else
+                {
+                    receipt = JsonConvert.DeserializeObject<ReceiptObj>(ReceiptJSONString);
+                }
+
+                return new JsonResult(receipt);
             }
-            else
+            catch (Exception ex)
             {
-                receipt = JsonConvert.DeserializeObject<ReceiptObj>(ReceiptJSONString);
+                Console.WriteLine(ex.Message);
             }
-
-            return new JsonResult(receipt);
-
+            return new JsonResult(null);
         }
     }
 }

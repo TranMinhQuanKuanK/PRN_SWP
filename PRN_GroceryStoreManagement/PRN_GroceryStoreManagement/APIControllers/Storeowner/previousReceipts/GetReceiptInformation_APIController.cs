@@ -18,10 +18,18 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.previousReceipts
         [HttpPost]
         public IActionResult GetReceiptInformation([FromBody] JsonElement JsonObj)
         {
-            int receipt_ID = int.Parse(JsonObj.GetProperty("receipt_ID").GetString());
-            PreviousReceiptDAO DAO = new PreviousReceiptDAO();
-            List<PreviousReceiptDetailDTO> receiptInfo = DAO.GetReceiptDetails(receipt_ID);
-            return new JsonResult(receiptInfo);
-        }
+            try
+            {
+                int receipt_ID = int.Parse(JsonObj.GetProperty("receipt_ID").GetString());
+                PreviousReceiptDAO DAO = new PreviousReceiptDAO();
+                List<PreviousReceiptDetailDTO> receiptInfo = DAO.GetReceiptDetails(receipt_ID);
+                return new JsonResult(receiptInfo);
+            } 
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return new JsonResult(null);
+}
     }
 }

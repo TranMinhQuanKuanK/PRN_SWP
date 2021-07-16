@@ -16,9 +16,11 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.statistics
         [HttpGet]
         public IActionResult GetFinancialStatistic(string date_from, string date_to)
         {
-            StatisticErrorObj errors = new StatisticErrorObj();
-            String dateFrom = date_from.Replace('T', ' ');
-            String dateTo = date_to.Replace('T', ' ');
+            try
+            {
+                StatisticErrorObj errors = new StatisticErrorObj();
+                String dateFrom = date_from.Replace('T', ' ');
+                String dateTo = date_to.Replace('T', ' ');
 
                 //1. Check error
                 if (dateFrom.Length == 0 || dateTo.Length == 0)
@@ -34,8 +36,8 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.statistics
 
                 if (errors.IsError)
                 {
-                //2.1 Caching errors, return error object
-                return new JsonResult(errors);
+                    //2.1 Caching errors, return error object
+                    return new JsonResult(errors);
                 }
                 else
                 {
@@ -60,8 +62,14 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.statistics
                     result.sumProfit = dao.sumProfit(dateFrom, dateTo);
                     result.sumCost = dao.getSumCost(dateFrom, dateTo);
 
-                return new JsonResult(result);
+                    return new JsonResult(result);
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return new JsonResult(null);
         }
     }
 }

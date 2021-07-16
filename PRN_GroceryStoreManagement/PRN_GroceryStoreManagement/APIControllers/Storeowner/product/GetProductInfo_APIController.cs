@@ -17,11 +17,19 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.product
         [HttpGet]
         public IActionResult GetProductInfo(string clickedProductID)
         {
-            int productID = int.Parse(clickedProductID);
+            try
+            {
+                int productID = int.Parse(clickedProductID);
 
-            ProductDAO dao = new ProductDAO();
-            ProductDTO dto = dao.GetProductByID(productID);
-            return new JsonResult(dto);
+                ProductDAO dao = new ProductDAO();
+                ProductDTO dto = dao.GetProductByID(productID);
+                return new JsonResult(dto);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return new JsonResult(null);
         }
     }
 }

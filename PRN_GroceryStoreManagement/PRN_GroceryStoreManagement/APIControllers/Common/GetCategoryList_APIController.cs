@@ -17,14 +17,21 @@ namespace PRN_GroceryStoreManagement.APIControllers.Common
     [ApiController]
     public class GetCategoryList_APIController : ControllerBase
     {
-        
+
         [HttpGet]
         public IActionResult GetCategoryList()
         {
+            try
+            {
+                List<CategoryDTO> categoryList = new CategoryDAO().GetAllCategory();
 
-            List<CategoryDTO> categoryList = new CategoryDAO().GetAllCategory();
-           
-            return new JsonResult(categoryList);
+                return new JsonResult(categoryList);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return new JsonResult(null);
         }
     }
 }

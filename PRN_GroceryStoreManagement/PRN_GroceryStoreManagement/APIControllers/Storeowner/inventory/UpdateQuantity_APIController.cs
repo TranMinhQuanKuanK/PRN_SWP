@@ -18,14 +18,22 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.inventory
         [HttpPost] 
         public IActionResult UpdateQuantity([FromBody] JsonElement JsonObj)
         {
-            int productID = int.Parse(JsonObj.GetProperty("product_ID").GetString());
-            int quantity = int.Parse(JsonObj.GetProperty("new_quantity").GetString());
-            if (quantity >= 0)
+            try
             {
-                ProductDAO DAO = new ProductDAO();
-                DAO.changeQuantity(productID, quantity);
+                int productID = int.Parse(JsonObj.GetProperty("product_ID").GetString());
+                int quantity = int.Parse(JsonObj.GetProperty("new_quantity").GetString());
+                if (quantity >= 0)
+                {
+                    ProductDAO DAO = new ProductDAO();
+                    DAO.changeQuantity(productID, quantity);
+                }
+                return new JsonResult(value: null);
+            } 
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
-            return new JsonResult(value: null);
-        }
+            return new JsonResult(null);
+}
     }
 }

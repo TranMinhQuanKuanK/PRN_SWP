@@ -18,38 +18,46 @@ namespace PRN_GroceryStoreManagement.APIControllers.Storeowner.inventory
         [HttpPost]
         public IActionResult AddToSuggestion([FromBody] JsonElement JsonObj)
         {
-            int productID = int.Parse(JsonObj.GetProperty("product_ID").GetString());
-            string notiMessage = JsonObj.GetProperty("noti_mess").GetString();
-            if (notiMessage.Equals("owner"))
+            try
             {
-                notiMessage = "Được thêm bởi store owner";
-                DateTime notedate = DateTime.Now;                   
-                PendingItemDAO DAO = new PendingItemDAO();
-                bool isExisted = DAO.IsExistedInPendingList(productID);
-                if (!isExisted)
-                { // chưa tồn tại trong Pending thì ghi xuống
-                    DAO.CreatePendingList(productID, notedate, notiMessage);
-                    return new JsonResult("1");
-                }
-                else
+                int productID = int.Parse(JsonObj.GetProperty("product_ID").GetString());
+                string notiMessage = JsonObj.GetProperty("noti_mess").GetString();
+                if (notiMessage.Equals("owner"))
                 {
-                    return new JsonResult("1");
+                    notiMessage = "Được thêm bởi store owner";
+                    DateTime notedate = DateTime.Now;
+                    PendingItemDAO DAO = new PendingItemDAO();
+                    bool isExisted = DAO.IsExistedInPendingList(productID);
+                    if (!isExisted)
+                    { // chưa tồn tại trong Pending thì ghi xuống
+                        DAO.CreatePendingList(productID, notedate, notiMessage);
+                        return new JsonResult("1");
+                    }
+                    else
+                    {
+                        return new JsonResult("1");
+                    }
                 }
-            }
-            else if (notiMessage.Equals("auto"))
+                else if (notiMessage.Equals("auto"))
+                {
+                    notiMessage = "Được thêm tự động";
+                    DateTime notedate = DateTime.Now;
+                    PendingItemDAO DAO = new PendingItemDAO();
+                    bool isExisted = DAO.IsExistedInPendingList(productID);
+                    if (!isExisted)
+                    {
+                        DAO.CreatePendingList(productID, notedate, notiMessage);
+                        return new JsonResult("1");
+                    }
+                }
+                return new JsonResult(value: null);
+            } 
+            catch (Exception ex)
             {
-                notiMessage = "Được thêm tự động";
-                DateTime notedate = DateTime.Now;
-                PendingItemDAO DAO = new PendingItemDAO();
-                bool isExisted = DAO.IsExistedInPendingList(productID);
-                if (!isExisted)
-                {
-                    DAO.CreatePendingList(productID, notedate, notiMessage);
-                    return new JsonResult("1");
-                }
+                Console.WriteLine(ex.Message);
             }
-            return new JsonResult(value: null);
-        }
+            return new JsonResult(null);
+}
 
     }
 }
