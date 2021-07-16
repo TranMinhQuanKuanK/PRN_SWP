@@ -50,9 +50,9 @@
         <div id="sidebar-placeholder">
         </div>
         <script>
-                $.get("Sidebar", function (data) {
-                    $("#sidebar-placeholder").replaceWith(data);
-                });
+            $.get("Sidebar", function (data) {
+                $("#sidebar-placeholder").replaceWith(data);
+            });
         </script>
         <!-- End of Sidebar -->
         <!-- Content Wrapper -->
@@ -147,7 +147,7 @@
                                     <!--/ End of Receipt Table Content-->
 
                                     <div class="d-flex justify-content-center">
-                                        <button class="btn btn-primary d-sm-inline-block shadow-sm" onclick="importReceipt()">
+                                        <button class="btn btn-primary d-sm-inline-block shadow-sm" onclick="handleImportReceipt()">
                                             <i class="fas fa-truck"></i>&nbsp;
                                             <span class="">Nhập hàng</span>
                                         </button>
@@ -176,6 +176,61 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
+    <!-- Successful to edit product toast -->
+    <div class="d-flex justify-content-end" style="bottom: 5px; right: 5px; z-index: 8000; position: fixed;">
+        <div id="success-to-save-toast" class="toast hide" role="alert">
+            <div class="toast-header">
+                <strong class="mr-3 text-success">Thay đổi thành công</strong>
+                <small class="my-auto">Mới</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body bg-light">
+                Nhập hàng thành công
+            </div>
+        </div>
+    </div>
+    <!-- Fail to edit product toast -->
+    <div class="d-flex justify-content-end" style="bottom: 5px; right: 5px; z-index: 8000;
+        position: fixed;">
+        <div id="fail-to-save-toast" class="toast hide" role="alert">
+            <div class="toast-header">
+                <strong class="mr-3 text-danger">Thay đổi thất bại</strong>
+                <small class="my-auto">Mới</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body bg-light">
+                Hãy thêm hàng để nhập
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CONFIRM IMPORT -->
+    <div class="modal fade" id="confirmImportModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Xác nhận nhập hàng</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Ấn 'Đồng Ý' Để Tiếp Tục</p>
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-primary" onclick="importReceipt()" data-dismiss="modal">Đồng ý</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Quay lại</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="/storeowner/vendor/jquery/jquery.min.js"></script>

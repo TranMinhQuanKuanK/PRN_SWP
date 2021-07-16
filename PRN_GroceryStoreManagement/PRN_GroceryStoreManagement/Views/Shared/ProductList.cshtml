@@ -15,7 +15,7 @@
     <link href="/storeowner/vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
-     
+
     <!-- Custom styles for this template-->
     <link href="/storeowner/css/gsm-storeowner-stylesheet1.css" rel="stylesheet" type="text/css">
     <!--        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.25/datatables.min.css"/>-->
@@ -121,17 +121,6 @@
                                             </div>
                                         </div>
 
-                                        <!--                                            <div class="col-4 my-auto">
-                                                                                    <form class=" d-flex justify-content-center">
-                                                                                        <div class="form-check mx-auto">
-                                                                                            <input class="form-check-input" type="checkbox" value="outOfStock"
-                                                                                                   id="outOfStockItems">
-                                                                                            <label class="form-check-label" for="outOfStockItems">
-                                                                                                Xem những mặt hàng dưới ngưỡng
-                                                                                            </label>
-                                                                                        </div>
-                                                                                    </form>
-                                                                                </div>-->
                                         <div class="col-5 my-auto d-flex justify-content-end ">
                                             <div id="length-menu" class="">
                                                 <!-- Length Menu -->
@@ -180,10 +169,6 @@
 
     </div>
     <!-- End of Page Wrapper -->
-    <!--         Scroll to Top Button
-            <a class="scroll-to-top rounded" href="#page-top">
-                <i class="fas fa-angle-up"></i>
-            </a>-->
     <!-- Add Modal-->
     <div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -199,7 +184,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="edit-product-name" class="col-form-label required">Tên:</label>
-                                <input type="text" class="form-control" id="add-product-name" required>
+                                <input type="text" class="form-control" id="add-product-name" maxlength="100" required>
                             </div>
                         </div>
                         <p class="text-danger d-none" id="add-product-name-warning"></p>
@@ -212,7 +197,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="unit-label" class="col-form-label">Đơn vị:</label>
-                                <input type="text" class="form-control" id="add-unit-label">
+                                <input type="text" class="form-control" id="add-unit-label" maxlength="15">
                             </div>
                         </div>
 
@@ -248,7 +233,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="add-location" class="col-form-label">Vị trí:</label>
-                                <input type="text" class="form-control" id="add-location">
+                                <input type="text" class="form-control" id="add-location" maxlength="30">
                             </div>
                         </div>
                         <div class="form-group">
@@ -289,7 +274,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="edit-product-name" class="col-form-label required">Tên:</label>
-                                <input type="text" class="form-control" id="edit-product-name" required disabled>
+                                <input type="text" class="form-control" id="edit-product-name" required maxlength="60" disabled>
                             </div>
                         </div>
                         <p class="text-danger d-none" id="edit-product-name-warning"></p>
@@ -302,7 +287,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="edit-unit-label" class="col-form-label">Đơn vị:</label>
-                                <input type="text" class="form-control" id="edit-unit-label" disabled>
+                                <input type="text" class="form-control" id="edit-unit-label" maxlength="15" disabled>
                             </div>
                         </div>
 
@@ -338,7 +323,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="edit-location" class="col-form-label">Vị trí:</label>
-                                <input type="text" class="form-control" id="edit-location" disabled>
+                                <input type="text" class="form-control" id="edit-location" maxlength="100" disabled>
                             </div>
                         </div>
                         <div class="form-group">

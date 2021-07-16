@@ -41,7 +41,7 @@ namespace PRN_GroceryStoreManagement.Models.previousReceipt
                         string owner_name = getStoreOwnerName(storeowner_name);
                         int total = reader.GetInt32("total");
                         PreviousReceiptDTO DTO = new PreviousReceiptDTO(receipt_ID, import_date, owner_name, total);
-                        listReceipt.Add(DTO);
+                        listReceipt.Insert(0, DTO);
                     }
                 }
             }
