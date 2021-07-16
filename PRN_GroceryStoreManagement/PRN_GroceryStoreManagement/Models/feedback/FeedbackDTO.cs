@@ -1,10 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using PRN_GroceryStoreManagement.Models.account;
 
-namespace PRN_GroceryStoreManagement.Models.feedback{
+namespace PRN_GroceryStoreManagement.Models.feedback
+{
     public class FeedbackDTO {
         public int feedback_ID {get; set;}
         public DateTime feedback_date {get; set;}

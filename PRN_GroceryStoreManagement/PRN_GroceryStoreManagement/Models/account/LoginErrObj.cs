@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace PRN_GroceryStoreManagement.Models.account
+﻿namespace PRN_GroceryStoreManagement.Models.account
 {
     public class LoginErrObj
     {
-        // private String LoginErr;
-        // private boolean has_Error;
-        //private int user_type;
         public int user_type { get; set; }
         public bool has_Error { get; set; }
         public string LoginErr { get; set; }
