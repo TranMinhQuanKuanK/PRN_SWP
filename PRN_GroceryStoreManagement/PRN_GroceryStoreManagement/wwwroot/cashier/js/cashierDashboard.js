@@ -9,6 +9,8 @@ const pagination_element = document.getElementById("page-selection");
 var accountErrObj;
 var customerErrObj;
 var previewCash;
+
+//
 function SearchForProduct(id) {
   for (i = 0; i < productList.length; i++) {
     if (productList[i].product_ID == id) return productList[i];
