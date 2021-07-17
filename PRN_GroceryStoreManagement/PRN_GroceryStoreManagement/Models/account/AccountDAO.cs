@@ -23,7 +23,6 @@ namespace PRN_GroceryStoreManagement.Models.account
             SqlCommand command = new SqlCommand($"SELECT username, password_acc, name, is_owner " +
                 $"FROM account WHERE username = '{username}' AND password_acc = '{password}'", connection);
             AccountDTO aDTO = null;
-
             //------------------------------------------------
             try
             {

@@ -55,7 +55,6 @@ namespace PRN_GroceryStoreManagement.APIControllers.Cashier
                 int profit = 0;
                 foreach (BillItemObject detail in Bill_Detail)
                 {
-                    //System.out.println("Món :" + detail.getProduct().getName() + " có gia ban: " + detail.getProduct().getSelling_price() + " va gia goc: " + detail.getProduct().getCost_price());
                     profit += (detail.product.selling_price - detail.product.cost_price) * detail.quantity;
                 }
                 profit -= point_used * 1000;
