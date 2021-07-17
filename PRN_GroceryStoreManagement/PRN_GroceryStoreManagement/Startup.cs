@@ -61,15 +61,14 @@ namespace PRN_GroceryStoreManagement
 
             app.UseSession();
 
-            app.UseCookiePolicy(); //middleware
+            app.UseCookiePolicy();
 
             app.UseAuthentication();
 
             app.UseAuthorization();
-            
+
             app.UseEndpoints(endpoints =>
             {
-                
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Startup}/{action?}/{id?}");

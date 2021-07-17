@@ -677,6 +677,7 @@ function clearbill() {
   };
   xhttp.send();
 }
+
 function Checkout() {
   if (currentBill.total_cost == 0) {
     $("#fail-to-save-toast").toast({

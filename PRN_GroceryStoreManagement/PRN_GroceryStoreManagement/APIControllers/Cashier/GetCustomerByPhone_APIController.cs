@@ -20,35 +20,35 @@ namespace PRN_GroceryStoreManagement.APIControllers.Common
     [ApiController]
     public class GetCustomerByPhone_APIController : ControllerBase
     {
-        
+
         [HttpGet]
         public IActionResult GetCustomerByPhone(string phone_no)
         {
             try
             {
                 CustomerDTO cDTO = new CustomerDAO().GetCustomerByPhone(phone_no);
-            
-            //get bill from session
-            BillObj bill = null;
-            String BillJSONString = HttpContext.Session.GetString("BILL");
-            if (BillJSONString == null)
-            {
-                bill = new BillObj();
-            }
-            else
-            {
-                bill = JsonConvert.DeserializeObject<BillObj>(BillJSONString);
-                bill.err_obj = new BillErrObj();
-            }
-            
-            //nếu tìm thấy thì set
-            if (cDTO != null)
-            {
+
+                //get bill from session
+                BillObj bill = null;
+                String BillJSONString = HttpContext.Session.GetString("BILL");
+                if (BillJSONString == null)
+                {
+                    bill = new BillObj();
+                }
+                else
+                {
+                    bill = JsonConvert.DeserializeObject<BillObj>(BillJSONString);
+                    bill.err_obj = new BillErrObj();
+                }
+
+                //nếu tìm thấy thì set
+                if (cDTO != null)
+                {
                     bill.customer_dto = cDTO;
                     bill.phone_no = cDTO.phone_no;
-                HttpContext.Session.SetString("BILL", JsonConvert.SerializeObject(bill));
-            }
-            return new JsonResult(cDTO);
+                    HttpContext.Session.SetString("BILL", JsonConvert.SerializeObject(bill));
+                }
+                return new JsonResult(cDTO);
             }
             catch (Exception ex)
             {
