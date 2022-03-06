@@ -42,12 +42,15 @@ namespace PRN_GroceryStoreManagement.Models.customer
 
                     }
                 }
-                else return null;
-                connection.Close();
+                else return null;         
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (connection != null) connection.Close();
             }
             return cDTO;
         }
@@ -79,6 +82,10 @@ namespace PRN_GroceryStoreManagement.Models.customer
             {
                 Console.WriteLine(e.Message);
             }
+            finally
+            {
+                if (connection != null) connection.Close();
+            }
             return false;
             //?
         }
@@ -108,14 +115,18 @@ namespace PRN_GroceryStoreManagement.Models.customer
                         current_point = reader.GetInt32("point");
                     }
                 }
-                connection.Close();
+           
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.Message);
             }
+            finally
+            {
+                if (connection != null) connection.Close();
+            }
             //---------------------------------------------
-             SQLString = "UPDATE customer "
+            SQLString = "UPDATE customer "
                         + "SET point = @point"
                         + " WHERE phone_no = @phone_no ";
             command = new SqlCommand(SQLString, connection);
@@ -126,12 +137,16 @@ namespace PRN_GroceryStoreManagement.Models.customer
                 command.Parameters.Add("@point", SqlDbType.Int).Value = current_point + point;
                 command.Parameters.Add("@phone_no", SqlDbType.NVarChar).Value = phone_no;
                 int rowAffected = command.ExecuteNonQuery();
-                connection.Close();
+            
                 return rowAffected > 0;
             }
             catch (SqlException e)
             {
                 Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (connection != null) connection.Close();
             }
 
             return false;

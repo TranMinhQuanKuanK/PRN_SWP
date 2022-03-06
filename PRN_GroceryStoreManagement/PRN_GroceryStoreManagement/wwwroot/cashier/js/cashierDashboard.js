@@ -8,7 +8,7 @@ const productList_element = document.getElementById("product-list"); //biến c�
 const pagination_element = document.getElementById("page-selection");
 var accountErrObj;
 var customerErrObj;
-
+var previewCash;
 function SearchForProduct(id) {
   for (i = 0; i < productList.length; i++) {
     if (productList[i].product_ID == id) return productList[i];
@@ -48,8 +48,9 @@ function DisplayProductInfo(id) {
   if (product == -1) console.log("error! Can't find product");
   document.getElementById("product-info-name").innerHTML = product.name;
   document.getElementById("product-info-quantity").innerHTML = product.quantity;
-  document.getElementById("product-info-price").innerHTML =
-    product.selling_price;
+  document.getElementById("product-info-price").innerHTML = eVietnamCurrency(
+    product.selling_price
+  );
   document.getElementById("product-info-location").innerHTML = product.location;
 }
 
@@ -98,10 +99,10 @@ function createHTMLForEachProduct(product) {
     "                                        </svg>";
 
   if (product.quantity <= product.lower_threshold && product.quantity > 0) {
-    tr_el.setAttribute("class", "product-low-quantity text-black");
-    btn_el.setAttribute("class", "btn btn-outline-light rounded-circle");
-  } else if (product.quantity == 0) {
-    tr_el.setAttribute("class", "product-out-of-stock text-white");
+    tr_el.setAttribute("class", "product-low-quantity font-weight-bold");
+    btn_el.setAttribute("class", "btn btn-outline-dark rounded-circle");
+  } else if (product.quantity === 0) {
+    tr_el.setAttribute("class", "product-out-of-stock font-weight-bold");
     btn_el.setAttribute("class", "btn btn-outline-light rounded-circle");
   }
 
@@ -116,15 +117,20 @@ function createHTMLForEachProduct(product) {
 // KuanK's function - send feedback to server
 function sendFeedback() {
   var xhttp = new XMLHttpRequest();
-  content =
-    "feedback_content=" +
-    encodeURIComponent(document.getElementById("feedback").value);
-  xhttp.open("POST", "SendFeedback", true);
-  xhttp.setRequestHeader(
-    "Content-Type",
-    "application/x-www-form-urlencoded;charset=UTF-8"
+
+  var feedback_content = encodeURIComponent(
+    document.getElementById("feedback").value
   );
-  xhttp.send(content);
+  var JSONObject = {
+    feedback_content: feedback_content,
+  };
+
+  xhttp.open("POST", "SendFeedback", true);
+
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.setRequestHeader("Accept", "application/json");
+  xhttp.send(JSON.stringify(JSONObject));
+
   document.getElementById("feedback").value = "";
   $("#createFeedback").modal("hide");
 }
@@ -238,8 +244,9 @@ function printBill(billObject) {
   );
   document.getElementById("discount").innerHTML =
     "<del>" + formatNumber(discount) + "</del>";
-  document.getElementById("total-after-discount").innerHTML =
-    "<strong>" + formatNumber(total_cost_after_discount) + "</strong>";
+  document.getElementById("total-after-discount").innerHTML = formatNumber(
+    total_cost_after_discount
+  );
   //in ra tên customer
   renderCustomer();
 
@@ -303,8 +310,27 @@ function printPreviewBill(billObject) {
     document.getElementById("cash").value == ""
       ? "...Chưa nhập..."
       : formatNumber(document.getElementById("cash").value);
+
+  var cash = parseInt(
+    document.getElementById("cash").value.split(".").join("")
+  );
+  var total = parseInt(
+    document
+      .getElementById("total-after-discount")
+      .innerHTML.split(".")
+      .join("")
+  );
+  document.getElementById("bill-preview-change").innerHTML =
+    document.getElementById("cash").value == ""
+      ? "...Chưa nhập..."
+      : formatNumber(
+          parseInt(cash) - parseInt(total) > 0
+            ? parseInt(cash) - parseInt(total)
+            : 0
+        );
   $("#bill-preview-modal").modal("show");
 }
+
 function display_Bill_ErrorMessage() {
   errorObj = currentBill.err_obj;
   //clear error area
@@ -325,30 +351,23 @@ function SearchProduct() {
   //nếu category khác null thì thêm vào query string
   if (category_id != null) url += "&category_id=" + category_id;
   //nếu không có tên và category_id = tất cả (null) thì cho productList là rỗng
-  if (name == "" && category_id == null) {
-    productList = [];
+  // if (name == "" && category_id == null) {
+  //   productList = [];
+  //   RenderProduct();
+  // } else {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", url, true);
+  xhttp.onload = function () {
+    productList = JSON.parse(this.responseText);
+    //  console.log(productList);
     RenderProduct();
-  } else {
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", url, true);
-    xhttp.onload = function () {
-      productList = JSON.parse(this.responseText);
-      //  console.log(productList);
-      RenderProduct();
-    };
-    xhttp.send();
-  }
+  };
+  xhttp.send();
+  // }
 }
 
 //KuanK đã sửa - render product list
 function RenderProduct() {
-  // Load products
-  // var ProducthtmlList = document.getElementById("product-list");
-  // ProducthtmlList.innerHTML = "";
-  // for (i = 0; i < productList.length; i++) {
-  //   ProducthtmlList.appendChild(createHTMLForEachProduct(productList[i]));
-  // }
-
   DisplayProductList(
     productList,
     rows_per_page,
@@ -374,7 +393,7 @@ function renderCategory(categoryListObject) {
   tr.setAttribute("onclick", "setCategoryAndSearch(event," + null + ")");
   var td = document.createElement("td");
   td.innerHTML = "(Tất cả)";
-  td.setAttribute("class", "bg-secondary");
+  td.setAttribute("class", "royalblueBg");
   tr.appendChild(td);
   document.getElementById("category-list").appendChild(tr);
 
@@ -398,27 +417,33 @@ function renderCategory(categoryListObject) {
 
 function setCategoryAndSearch(event, id) {
   //In đậm các category được click
-  $("#category-list tr td").removeClass("bg-secondary");
-  event.target.setAttribute("class", "bg-secondary");
+  $("#category-list tr td").removeClass("royalblueBg");
+  event.target.setAttribute("class", "royalblueBg");
   category_id = id;
+  document.getElementById("product-search-bar").value = "";
   SearchProduct();
 }
 
 function searchCustomerByPhone() {
   var xhttp = new XMLHttpRequest();
   var phone_no = document.getElementById("phone-no-input").value;
-  xhttp.open("GET", "GetCustomerByPhone?phone_no=" + phone_no, true);
-  xhttp.onload = function () {
-    //nếu kết quả trả về null thì thôi, còn nếu khác null thì in ra
-    result_dto = JSON.parse(this.responseText);
-    if (result_dto != null) {
-      currentBill.customer_dto = result_dto;
-      printBill(currentBill);
-    } else if (result_dto == null) {
-      alert("Không tìm thấy khách hàng tương ứng!");
-    }
-  };
-  xhttp.send();
+  if (phone_no != "") {
+    xhttp.open("GET", "GetCustomerByPhone?phone_no=" + phone_no, true);
+    xhttp.onload = function () {
+      //nếu kết quả trả về null thì thôi, còn nếu khác null thì in ra
+      result_dto = JSON.parse(this.responseText);
+      if (result_dto != null) {
+        currentBill.customer_dto = result_dto;
+        printBill(currentBill);
+      } else if (result_dto == null) {
+        $("#fail-to-find-customer-toast").toast({
+          delay: 2000,
+        });
+        $("#fail-to-find-customer-toast").toast("show");
+      }
+    };
+    xhttp.send();
+  }
 }
 
 function renderCustomer() {
@@ -540,24 +565,29 @@ function passwordChange() {
         "Mật khẩu xác nhận không trùng khớp";
     } else {
       //gửi request về nhận về object lỗi
-      var xhttp = new XMLHttpRequest();
 
-      content =
-        "currentPassword=" +
-        encodeURIComponent(document.getElementById("currentPassword").value) +
-        "&newPassword=" +
-        encodeURIComponent(document.getElementById("newPassword").value);
+      var xhttp = new XMLHttpRequest();
+      var currentPassword = encodeURIComponent(
+        document.getElementById("currentPassword").value
+      );
+      var newPassword = encodeURIComponent(
+        document.getElementById("newPassword").value
+      );
+      var JSONObject = {
+        currentPassword: currentPassword,
+        newPassword: newPassword,
+      };
 
       xhttp.open("POST", "ChangePasswordCashier", true);
-      xhttp.setRequestHeader(
-        "Content-Type",
-        "application/x-www-form-urlencoded;charset=UTF-8"
-      );
+      xhttp.setRequestHeader("Content-type", "application/json");
+      xhttp.setRequestHeader("Accept", "application/json");
+
       xhttp.onload = function () {
         accountErrObj = JSON.parse(this.responseText);
         processError();
       };
-      xhttp.send(content);
+
+      xhttp.send(JSON.stringify(JSONObject));
       //console.log(accountErrObj); //debug
       // xem in ra lỗi hay đóng modal
       function processError() {
@@ -637,11 +667,24 @@ function RegisterCustomer() {
   }
 }
 
+function clearbill() {
+  var xhttp = new XMLHttpRequest();
+
+  xhttp.open("GET", "ClearBill", true);
+  xhttp.onload = function () {
+    getBill();
+    document.getElementById("cash").value = "";
+  };
+  xhttp.send();
+}
 function Checkout() {
   if (currentBill.total_cost == 0) {
-    alert("Chưa mua gì mà bấm thanh toán?????");
+    $("#fail-to-save-toast").toast({
+      delay: 2000,
+    });
+    $("#fail-to-save-toast").toast("show");
   } else {
-    var cash = document.getElementById("cash").value;
+    var cash = document.getElementById("cash").value.split(".").join("");
     var xhttp = new XMLHttpRequest();
 
     xhttp.open("GET", "Checkout?cash=" + cash, true);
@@ -649,8 +692,13 @@ function Checkout() {
       // customerErrObj = JSON.parse(this.responseText);
       clearBill();
       getBill();
+      SearchProduct();
       document.getElementById("cash").value = "";
       $("#bill-preview-modal").modal("hide");
+      $("#success-to-save-toast").toast({
+        delay: 2000,
+      });
+      $("#success-to-save-toast").toast("show");
     };
     xhttp.send();
     //clear bill, đóng modal
@@ -665,6 +713,7 @@ function pageLoadKuanK() {
   getCashierName();
   getBill();
   getCategory();
+  SearchProduct();
 }
 
 /* ====================================
@@ -720,7 +769,7 @@ function SetupPagination(products, wrapper, rows_per_page) {
 
 function PaginationButton(page, products) {
   let button = document.createElement("button");
-  button.setAttribute("class", "btn btn-sm btn-outline-warning");
+  button.setAttribute("class", "btn btn-sm btn-outline-secondary");
   button.innerText = page;
 
   if (current_page == page) button.classList.add("active");
@@ -774,6 +823,43 @@ function DisplayPagination() {
   }
 }
 
+// Format user input for currency
+$("#cash").on("input", function () {
+  /*
+     * These additional lines prevent the function from running when the user 
+     makes a selection within the input
+     or presses the arrow keys on the keyboard
+     */
+  var selection = window.getSelection().toString();
+  if (selection !== "") {
+    return;
+  }
+  if ($.inArray(event.keyCode, [38, 40, 37, 39]) !== -1) {
+    return;
+  }
+  // End of additional checks
+
+  /*
+     *  Retrieve the value from the input.
+     Sanitize the value using RegEx by removing unnecessary characters such as spaces, underscores, dashes, and letters.
+     Deploy parseInt() function to make sure the value is an integer (a round number).
+     Add the thousand separator with the eVietnam() function, then pass the sanitised value back to the input element.
+     */
+  var input = $(this).val();
+  var input = input.replace(/[\D\s\._\-]+/g, "");
+  input = input ? parseInt(input, 10) : 0;
+  $(this).val(function () {
+    return input === 0 ? "" : eVietnam(input);
+  });
+});
+
+function eVietnam(num) {
+  return num.toLocaleString("vi");
+}
+
+function eVietnamCurrency(num) {
+  return num.toLocaleString("vi", { style: "currency", currency: "VND" });
+}
 // DisplayProductList(
 //   productList,
 //   rows_per_page,

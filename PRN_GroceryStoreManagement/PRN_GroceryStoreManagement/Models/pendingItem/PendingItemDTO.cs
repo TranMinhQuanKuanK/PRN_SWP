@@ -11,7 +11,7 @@ namespace PRN_GroceryStoreManagement.Models.pendingItem
         public int product_ID { get; set; }
         public DateTime pending_date { get; set; }
         public bool is_resolved { get; set; }
-        public String note { get; set; }
+        public string note { get; set; }
 
         public PendingItemDTO(int pendingID, int product_ID, DateTime pending_date, bool is_resolved, string note)
         {
